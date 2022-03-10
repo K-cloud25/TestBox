@@ -3,6 +3,7 @@ package org.textbox.testbox
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -51,7 +52,6 @@ class Nav_Activity : AppCompatActivity() {
 
             true
         }
-
     }
 
     private fun logoutOfAccount(){
