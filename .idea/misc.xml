@@ -4,12 +4,15 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/TestBox/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.172" />
+        <entry key="..\:/TestBox/app/src/main/res/drawable/edit_background_default.xml" value="0.155" />
+        <entry key="..\:/TestBox/app/src/main/res/drawable/edit_background_error.xml" value="0.1065" />
         <entry key="..\:/TestBox/app/src/main/res/drawable/ic_launcher_background.xml" value="0.172" />
         <entry key="..\:/TestBox/app/src/main/res/drawable/menubackground.xml" value="0.172" />
         <entry key="..\:/TestBox/app/src/main/res/drawable/navheaderbackground.xml" value="0.172" />
-        <entry key="..\:/TestBox/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/TestBox/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/TestBox/app/src/main/res/layout/activity_nav.xml" value="0.1" />
         <entry key="..\:/TestBox/app/src/main/res/layout/activity_sign_up.xml" value="0.1" />
+        <entry key="..\:/TestBox/app/src/main/res/layout/activity_user_profile.xml" value="0.18" />
         <entry key="..\:/TestBox/app/src/main/res/layout/fragment_home.xml" value="0.20416666666666666" />
         <entry key="..\:/TestBox/app/src/main/res/layout/nav_header.xml" value="0.25" />
         <entry key="..\:/TestBox/app/src/main/res/menu/nav_menu.xml" value="0.5" />

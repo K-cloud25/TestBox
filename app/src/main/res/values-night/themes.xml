@@ -15,5 +15,14 @@
 
         <!-- Action Bar Customization-->
         <item name="titleTextColor">@color/titleTextColor</item>
+
+        <item name="drawerArrowStyle">@style/Hamburger</item>
+    </style>
+
+    <style name="Hamburger" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="spinBars">true</item>
+        <item name="color">@color/hamburgerColor</item>
+        <item name="backgroundColor">@color/hamburgerColor</item>
+        <item name="backgroundTint">@color/hamburgerColor</item>
     </style>
 </resources>
