@@ -4,13 +4,18 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import de.hdodenhof.circleimageview.CircleImageView
+import org.textbox.testbox.databinding.ActivityMainBinding
 import org.textbox.testbox.databinding.ActivityNavBinding
 
 
@@ -19,6 +24,15 @@ class Nav_Activity : AppCompatActivity() {
     private lateinit var binding : ActivityNavBinding
 
     private lateinit var toggle : ActionBarDrawerToggle
+
+
+
+    //Firebase Auth
+    private lateinit var fireAuth: FirebaseAuth
+    private lateinit var firebaseDatabase: FirebaseDatabase
+
+
+    private lateinit var textView: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,4 +71,34 @@ class Nav_Activity : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
+    private fun getData(){
+
+//        val firebaseUser =  fireAuth.currentUser
+//        val uid = firebaseUser?.uid
+//        val ref= FirebaseDatabase.getInstance().getReference()
+//        if (uid != null) {
+//            ref.child(uid).get().addOnSuccessListener {
+//                val firstname = it.child("firsName").value.toString()
+//                textView.setText(firstname)
+//
+//
+//            }
+//        }
+        val ref = FirebaseDatabase.getInstance().getReference("user")
+        ref.child(fireAuth.uid!!)
+            .addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    val firstname = "${snapshot.child("firstName").value}"
+                    textView.text=firstname
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    TODO("Not yet implemented")
+                }
+            })
+    }
+
+
 }
+
+

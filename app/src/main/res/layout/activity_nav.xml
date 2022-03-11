@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:id="@+id/drawerLayout"
     android:background="@color/backGround"
-    tools:context=".DispActivity">
+    tools:context=".Nav_Activity">
 
     <LinearLayout
         android:layout_width="match_parent"
