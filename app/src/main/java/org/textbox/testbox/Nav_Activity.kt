@@ -77,7 +77,7 @@ class Nav_Activity : AppCompatActivity() {
     private fun getData(){
         val firebaseUser =  fireAuth.currentUser
         val uid = firebaseUser?.uid
-        val ref= FirebaseDatabase.getInstance().getReference("User")
+        val ref= FirebaseDatabase.getInstance().getReference("user")
         if (uid != null) {
             ref.child(uid).get().addOnSuccessListener {
                 val firstname = it.child("firstName").value.toString()
