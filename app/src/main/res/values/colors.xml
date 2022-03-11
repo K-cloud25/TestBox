@@ -7,6 +7,7 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="red">#ff0000</color>
 
     //Custom Based Layout Colors
     <color name="titleTextColor">#BD7050</color>
@@ -15,7 +16,12 @@
     <color name="buttonTextColor">#C76024</color>
     <color name="backGround">#E5E5E5</color>
 
+    <color name="lightbrown">#BD7050</color>
+    <color name="lightbrown2">#F8CAA0</color>
+    <color name="lightbrown3">#E6E3E2</color>
+
     <color name="navHeaderBG">#FFCCB9</color>
     <color name="navHeaderStroke">#FFA888</color>
     <color name="itemBG">#F8DFD6</color>
+    <color name="hamburgerColor">#FFAF92</color>
 </resources>

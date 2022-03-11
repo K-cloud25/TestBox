@@ -1,15 +1,18 @@
 package org.textbox.testbox
 
+import android.R
 import android.app.ProgressDialog
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Patterns
 import android.widget.Toast
 import androidx.appcompat.app.ActionBar
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import org.textbox.testbox.databinding.ActivityMainBinding
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -63,11 +66,10 @@ class MainActivity : AppCompatActivity() {
 
         if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
             //Put a red border
-            binding.logEmail.setText("Incorrect Email Format")
+            binding.logEmail.error = "Incorrect Email"
         }
         else if(TextUtils.isEmpty(password)){
-            //Put a red border
-            binding.logPassword.setText("Please Enter Password")
+            binding.logPassword.error = "Please Enter Password"
         }
         else{
             fireBaseLogin()

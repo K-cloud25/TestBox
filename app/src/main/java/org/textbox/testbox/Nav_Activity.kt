@@ -42,14 +42,11 @@ class Nav_Activity : AppCompatActivity() {
         navView.setNavigationItemSelectedListener {
 
             when(it.itemId){
-
                 R.id.navHome -> Toast.makeText(this,"Home",Toast.LENGTH_SHORT).show()
                 R.id.navClubs -> Toast.makeText(this,"Clubs",Toast.LENGTH_SHORT).show()
                 R.id.navNoticeBoard -> Toast.makeText(this,"Notice Board",Toast.LENGTH_SHORT).show()
                 R.id.navLogout -> logoutOfAccount()
-
             }
-
             true
         }
     }
