@@ -25,9 +25,6 @@ class DispActivity : AppCompatActivity() {
 
     }
 
-
-
-
     private fun getData(){
 
 //        val firebaseUser =  fireAuth.currentUser

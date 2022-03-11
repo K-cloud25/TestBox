@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.*
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 
 class UserProfile : AppCompatActivity() {
@@ -14,6 +15,8 @@ class UserProfile : AppCompatActivity() {
     lateinit var editTextTextPersonName: EditText
 
     lateinit var branchSpinner : Spinner
+
+    lateinit var fireAuth : FirebaseAuth
 
     private val button by lazy {
         findViewById(R.id.button) as Button
@@ -33,6 +36,8 @@ class UserProfile : AppCompatActivity() {
         branchSpinner = findViewById(R.id.branchSpinner)
 
         setUpbranchSpinner()
+
+        fireAuth = FirebaseAuth.getInstance()
 
     }
 
@@ -77,7 +82,7 @@ class UserProfile : AppCompatActivity() {
         }
 
         val ref = FirebaseDatabase.getInstance().getReference("user")
-        val heroId = ref.push().key
+        val heroId = fireAuth.currentUser?.uid
         val hero=Userclass(heroId,firstName, lastName, email)
         if (heroId != null) {
             ref.child(heroId).setValue(hero).addOnSuccessListener {
@@ -87,6 +92,5 @@ class UserProfile : AppCompatActivity() {
                 finish()
             }
         }
-
     }
 }

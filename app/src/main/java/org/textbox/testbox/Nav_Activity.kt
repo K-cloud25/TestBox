@@ -15,7 +15,6 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import de.hdodenhof.circleimageview.CircleImageView
-import org.textbox.testbox.databinding.ActivityMainBinding
 import org.textbox.testbox.databinding.ActivityNavBinding
 
 
@@ -42,6 +41,8 @@ class Nav_Activity : AppCompatActivity() {
         val drawerLayout : DrawerLayout = findViewById(R.id.drawerLayout)
         val navView : NavigationView = findViewById(R.id.nav_view)
 
+        textView = findViewById(R.id.textView)
+
         toggle = ActionBarDrawerToggle(this,drawerLayout,R.string.open,R.string.close)
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
@@ -55,13 +56,15 @@ class Nav_Activity : AppCompatActivity() {
 
                 R.id.navHome -> Toast.makeText(this,"Home",Toast.LENGTH_SHORT).show()
                 R.id.navClubs -> Toast.makeText(this,"Clubs",Toast.LENGTH_SHORT).show()
-                R.id.navNoticeBoard -> Toast.makeText(this,"Notice Board",Toast.LENGTH_SHORT).show()
+                R.id.navNoticeBoard -> Toast.makeText(this,"Notice Board`",Toast.LENGTH_SHORT).show()
                 R.id.navLogout -> Toast.makeText(this,"Logout",Toast.LENGTH_SHORT).show()
 
             }
 
             true
         }
+        fireAuth = FirebaseAuth.getInstance()
+        getData()
 
     }
 
@@ -72,33 +75,16 @@ class Nav_Activity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
     private fun getData(){
-
-//        val firebaseUser =  fireAuth.currentUser
-//        val uid = firebaseUser?.uid
-//        val ref= FirebaseDatabase.getInstance().getReference()
-//        if (uid != null) {
-//            ref.child(uid).get().addOnSuccessListener {
-//                val firstname = it.child("firsName").value.toString()
-//                textView.setText(firstname)
-//
-//
-//            }
-//        }
-        val ref = FirebaseDatabase.getInstance().getReference("user")
-        ref.child(fireAuth.uid!!)
-            .addValueEventListener(object : ValueEventListener {
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    val firstname = "${snapshot.child("firstName").value}"
-                    textView.text=firstname
-                }
-
-                override fun onCancelled(error: DatabaseError) {
-                    TODO("Not yet implemented")
-                }
-            })
+        val firebaseUser =  fireAuth.currentUser
+        val uid = firebaseUser?.uid
+        val ref= FirebaseDatabase.getInstance().getReference("User")
+        if (uid != null) {
+            ref.child(uid).get().addOnSuccessListener {
+                val firstname = it.child("firstName").value.toString()
+                textView.text = firstname
+            }
+        }
     }
-
-
 }
 
 
