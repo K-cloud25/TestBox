@@ -24,4 +24,8 @@
     <color name="navHeaderStroke">#FFA888</color>
     <color name="itemBG">#F8DFD6</color>
     <color name="hamburgerColor">#FFAF92</color>
+
+
+    <color name="darkGrey">#C4C4C4</color>
+    <color name="lightGrey">#D2D2D2</color>
 </resources>

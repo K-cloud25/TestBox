@@ -55,11 +55,11 @@ class Nav_Activity : AppCompatActivity() {
 
             when(it.itemId){
 
-                R.id.navHome -> Toast.makeText(this,"Home",Toast.LENGTH_SHORT).show()
+                R.id.navHome -> replaceFragment(HomeFragment(),it.title.toString())
                 R.id.navClubs -> Toast.makeText(this,"Clubs",Toast.LENGTH_SHORT).show()
                 R.id.navNoticeBoard -> Toast.makeText(this,"Notice Board`",Toast.LENGTH_SHORT).show()
                 R.id.navLogout -> logoutUser()
-                R.id.navTeamups -> replaceFragment(TeamUps(),it.title.toString())
+                R.id.navTeamups -> Toast.makeText(this,"TeamUp",Toast.LENGTH_SHORT).show()
 
             }
             true
