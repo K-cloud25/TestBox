@@ -1,10 +1,13 @@
 package org.textbox.testbox
 
 import android.content.Intent
+import android.graphics.BitmapFactory
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -16,17 +19,25 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.google.firebase.storage.FirebaseStorage
 import de.hdodenhof.circleimageview.CircleImageView
 import org.textbox.testbox.databinding.ActivityNavBinding
+import java.io.File
 
 
 class Nav_Activity : AppCompatActivity() {
+
+    private lateinit var firebaseStorage: FirebaseStorage
+
+    lateinit var ImageUri: Uri
 
     private lateinit var binding : ActivityNavBinding
 
     private lateinit var toggle : ActionBarDrawerToggle
 
     private lateinit var drawerLayout:DrawerLayout
+
+
 
     //Firebase Auth
     private lateinit var fireAuth: FirebaseAuth
@@ -66,6 +77,7 @@ class Nav_Activity : AppCompatActivity() {
         }
         fireAuth = FirebaseAuth.getInstance()
         getData()
+        disppic()
     }
 
     private fun logoutUser(){
@@ -99,6 +111,7 @@ class Nav_Activity : AppCompatActivity() {
     }
 
     private fun getData(){
+        //for nav activity "name=navView.getheaderindex0.find by id (info)
         val navView : NavigationView = findViewById(R.id.nav_view)
         val cUser = fireAuth.currentUser
         val uid = cUser?.uid.toString()
@@ -118,6 +131,21 @@ class Nav_Activity : AppCompatActivity() {
         }.addOnFailureListener {
             Toast.makeText(this,"Unable to read Data",Toast.LENGTH_SHORT).show()
         }
+    }
+    private fun disppic(){
+        val navView : NavigationView = findViewById(R.id.nav_view)
+
+        val filename = fireAuth.currentUser?.uid
+        val Storageref = FirebaseStorage.getInstance().getReference("ProfilePic/$filename")
+        val localfile=File.createTempFile("uid","jpg")
+        val profile : de.hdodenhof.circleimageview.CircleImageView = navView.getHeaderView(0).findViewById(R.id.profilePic)
+
+
+        Storageref.getFile(localfile).addOnSuccessListener {
+            val bitmap=BitmapFactory.decodeFile(localfile.absolutePath)
+           profile.setImageBitmap(bitmap)
+        }
+
     }
 }
 
