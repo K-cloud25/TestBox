@@ -91,14 +91,16 @@ class TeamCollabFragment : Fragment() {
         saveBtn.setOnClickListener {
             Toast.makeText(view?.context,"Add Request", Toast.LENGTH_SHORT).show()
             val newRequestDatabase = FirebaseDatabase.getInstance().getReference("teamUps")
+
             //RequestID & Other RequiredID :
             val projectName = projectNameEdit.text.toString()
             val requestID = projectName + currentUser?.uid.toString()
             val userNameId = userNameEdit.text.toString()
             val work = workEdit.text.toString()
             val reqEditId = reqEdit.text.toString()
+
             //making Request Object
-            val request = requestClass(requestID,projectName,userNameId,work,reqEditId)
+            val request = requestClass(requestID,projectName,reqEditId,userNameId,work)
             //Pushing Object To fireDataBase
             newRequestDatabase.child(requestID).setValue(request).addOnSuccessListener {
                 Toast.makeText(view?.context,"Request Added",Toast.LENGTH_SHORT).show()
@@ -118,6 +120,7 @@ class TeamCollabFragment : Fragment() {
         ref.addValueEventListener(object: ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if(snapshot.exists()){
+                    reqArray.clear()
                     for(requestSnapShot in snapshot.children){
                         val request = requestSnapShot.getValue(requestClass::class.java)
                         reqArray.add(request!!)

@@ -39,16 +39,17 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <LinearLayout
+            android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:layout_margin="7dp"
             android:background="@drawable/inner_request_background"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/userName"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/userName"
-            app:layout_constraintBottom_toBottomOf="parent">
+            app:layout_constraintTop_toTopOf="parent">
 
             <TextView
                 android:id="@+id/workRQU"
@@ -58,7 +59,7 @@
                 android:paddingHorizontal="10dp"
                 android:text="Work"
                 android:textColor="@color/black"
-                android:textSize="18dp"/>
+                android:textSize="18dp" />
 
             <TextView
                 android:id="@+id/reqRQU"
@@ -68,11 +69,23 @@
                 android:paddingHorizontal="10dp"
                 android:text="Requirement"
                 android:textColor="@color/black"
-                android:textSize="18dp"/>
+                android:textSize="18dp" />
 
         </LinearLayout>
 
-
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="15dp"
+            android:background="@color/buttonTextColor"
+            android:layout_marginVertical="5dp"
+            android:padding="5dp"
+            android:text="Request"
+            android:textColor="@color/black"
+            android:textSize="18dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
