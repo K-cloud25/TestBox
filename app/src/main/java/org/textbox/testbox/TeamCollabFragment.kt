@@ -67,6 +67,7 @@ class TeamCollabFragment : Fragment() {
         val root = window.create()
         root.show()
 
+        val projectNameEdit : EditText = root.findViewById(R.id.projectNameRQU)
         val userNameEdit : TextView = root.findViewById(R.id.userNameInputRQU)
         val workEdit : EditText = root.findViewById(R.id.workInputRQU)
         val reqEdit: EditText = root.findViewById(R.id.requirementInputRQU)
@@ -90,20 +91,19 @@ class TeamCollabFragment : Fragment() {
         saveBtn.setOnClickListener {
             Toast.makeText(view?.context,"Add Request", Toast.LENGTH_SHORT).show()
             val newRequestDatabase = FirebaseDatabase.getInstance().getReference("teamUps")
-            //RequestID & Other RequiredID ::
-            val requestID = fireAuth.currentUser?.uid + "_" + currentUser?.uid?.length.toString()
+            //RequestID & Other RequiredID :
+            val projectName = projectNameEdit.text.toString()
+            val requestID = projectName + currentUser?.uid.toString()
             val userNameId = userNameEdit.text.toString()
             val work = workEdit.text.toString()
             val reqEditId = reqEdit.text.toString()
             //making Request Object
-            val request = requestClass(requestID,userNameId,work,reqEditId)
+            val request = requestClass(requestID,projectName,userNameId,work,reqEditId)
             //Pushing Object To fireDataBase
             newRequestDatabase.child(requestID).setValue(request).addOnSuccessListener {
                 Toast.makeText(view?.context,"Request Added",Toast.LENGTH_SHORT).show()
                 root.dismiss()
             }
-            TODO("The request ID is not Unique and it should be able to be trackable through user"
-                    +"Clear the Adaptar before adding values to avoid duplicates")
         }
     }
 

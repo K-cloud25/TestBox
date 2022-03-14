@@ -21,6 +21,7 @@ class MyAdapter(private var requestList : ArrayList<requestClass>): RecyclerView
         holder.userNameText.text = currentItem.userName.toString()
         holder.workText.text = currentItem.work.toString()
         holder.requiText.text = currentItem.requirement.toString()
+        holder.projectName.text = currentItem.projectName.toString()
     }
 
     override fun getItemCount(): Int {
@@ -31,6 +32,7 @@ class MyAdapter(private var requestList : ArrayList<requestClass>): RecyclerView
         val userNameText : TextView = itemView.findViewById(R.id.userName)
         val workText : TextView = itemView.findViewById(R.id.workRQU)
         val requiText : TextView = itemView.findViewById(R.id.reqRQU)
+        val projectName : TextView = itemView.findViewById(R.id.projectName)
 
     }
 }
