@@ -1,5 +1,7 @@
 package org.textbox.testbox
 
-data class requestClass(var requirement : String ?= null
-                        ,var userName : String ?= null,
-                        var work : String ?= null)
+data class requestClass(
+    val requirement : String? = null,
+    val userName: String? = null,
+    val work : String? = null
+)

@@ -7,13 +7,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.Toast
+import android.view.Window
+import android.widget.*
 import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -48,7 +47,7 @@ class TeamCollabFragment : Fragment() {
         contactBtn = view.findViewById(R.id.userRequestCheck)
 
         plusButton.setOnClickListener {
-            Toast.makeText(view.context,"Add Request", Toast.LENGTH_SHORT).show()
+            addRequest()
         }
 
         contactBtn.setOnClickListener {
@@ -58,6 +57,39 @@ class TeamCollabFragment : Fragment() {
         setUpRV()
 
         return view
+    }
+
+    private fun addRequest(){
+        val window = AlertDialog.Builder(view?.context)
+        val view_window = layoutInflater.inflate(R.layout.popup_new_request_layout,null)
+
+        window.setView(view_window)
+        val root = window.create()
+        root.show()
+
+        val userNameEdit : TextView = root.findViewById(R.id.userNameInputRQU)
+        val workEdit : EditText = root.findViewById(R.id.workInputRQU)
+        val reqEdit: EditText = root.findViewById(R.id.requirementInputRQU)
+
+        val fireAuth : FirebaseAuth = FirebaseAuth.getInstance()
+        val fireDatabase = FirebaseDatabase.getInstance().getReference("user")
+        val currentUser = fireAuth.currentUser
+
+
+        fireDatabase.child(currentUser?.uid.toString()).get().addOnSuccessListener {
+            val username  = it.child("firstName").value.toString()
+            userNameEdit.setText(username)
+        }
+
+        val canBtn : Button = view_window.findViewById(R.id.canBtn)
+        canBtn.setOnClickListener {
+            root.dismiss()
+        }
+
+        val saveBtn : Button = view_window.findViewById(R.id.saveBtn)
+        saveBtn.setOnClickListener {
+            Toast.makeText(view?.context,"Add Request", Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun setUpRV(){
