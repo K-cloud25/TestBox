@@ -26,18 +26,6 @@ class DispActivity : AppCompatActivity() {
     }
 
     private fun getData(){
-
-//        val firebaseUser =  fireAuth.currentUser
-//        val uid = firebaseUser?.uid
-//        val ref= FirebaseDatabase.getInstance().getReference()
-//        if (uid != null) {
-//            ref.child(uid).get().addOnSuccessListener {
-//                val firstname = it.child("firsName").value.toString()
-//                textView.setText(firstname)
-//
-//
-//            }
-//        }
         val ref = FirebaseDatabase.getInstance().getReference("user")
         ref.child(fireAuth.uid!!)
             .addValueEventListener(object : ValueEventListener {
@@ -47,7 +35,6 @@ class DispActivity : AppCompatActivity() {
                 }
 
                 override fun onCancelled(error: DatabaseError) {
-                    TODO("Not yet implemented")
                 }
             })
     }
