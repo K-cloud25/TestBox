@@ -94,7 +94,7 @@ class TeamCollabFragment : Fragment() {
 
             //RequestID & Other RequiredID :
             val projectName = projectNameEdit.text.toString()
-            val requestID = projectName + currentUser?.uid.toString()
+            val requestID = projectName +"_"+ currentUser?.uid.toString()
             val userNameId = userNameEdit.text.toString()
             val work = workEdit.text.toString()
             val reqEditId = reqEdit.text.toString()
