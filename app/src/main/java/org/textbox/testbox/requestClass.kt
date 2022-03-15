@@ -5,5 +5,5 @@ data class requestClass(
     val projectName : String? = null,
     val requirement : String? = null,
     val userName: String? = null,
-    val work : String? = null
+    val work : String? = null,
 )

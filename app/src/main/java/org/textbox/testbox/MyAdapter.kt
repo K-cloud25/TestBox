@@ -1,10 +1,16 @@
 package org.textbox.testbox
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import org.w3c.dom.Text
 
 class MyAdapter(private var requestList : ArrayList<requestClass>): RecyclerView.Adapter<MyAdapter.MyViewHolder>(){
@@ -22,6 +28,11 @@ class MyAdapter(private var requestList : ArrayList<requestClass>): RecyclerView
         holder.workText.text = currentItem.work.toString()
         holder.requiText.text = currentItem.requirement.toString()
         holder.projectName.text = currentItem.projectName.toString()
+
+        holder.requestBtn.setOnClickListener {
+            val requestID  = currentItem.requestID.toString()
+            sendRequestID(it.context,position,requestID)
+        }
     }
 
     override fun getItemCount(): Int {
@@ -33,6 +44,10 @@ class MyAdapter(private var requestList : ArrayList<requestClass>): RecyclerView
         val workText : TextView = itemView.findViewById(R.id.workRQU)
         val requiText : TextView = itemView.findViewById(R.id.reqRQU)
         val projectName : TextView = itemView.findViewById(R.id.projectName)
+        val requestBtn : Button = itemView.findViewById(R.id.requestBtn)
+    }
 
+    private fun sendRequestID(view:Context,position:Int,requestId:String){
+        Toast.makeText(view,"$requestId + $position",Toast.LENGTH_SHORT).show()
     }
 }
