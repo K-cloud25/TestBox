@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.view.Window
 import android.widget.*
 import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
@@ -29,6 +30,8 @@ class TeamCollabFragment : Fragment() {
 
     private lateinit var plusButton : ImageView
     private lateinit var contactBtn : CircleImageView
+
+    private lateinit var requestComms : RequestCommunicator
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,7 +54,7 @@ class TeamCollabFragment : Fragment() {
         }
 
         contactBtn.setOnClickListener {
-            Toast.makeText(view.context,"Check Responses", Toast.LENGTH_SHORT).show()
+            changeFragment()
         }
 
         setUpRV()
@@ -133,6 +136,16 @@ class TeamCollabFragment : Fragment() {
         })
 
     }
+
+    private fun changeFragment(){
+        Toast.makeText(view?.context,"Check Responses", Toast.LENGTH_SHORT).show()
+
+        val fragement = requestProfileFragment()
+
+        requestComms = activity as RequestCommunicator
+        requestComms.changeFragment(fragement,"Profile Request")
+    }
+
 
     companion object {
         fun newInstance(param1: String, param2: String) =

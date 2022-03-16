@@ -25,7 +25,7 @@ import org.textbox.testbox.databinding.ActivityNavBinding
 import java.io.File
 
 
-class Nav_Activity : AppCompatActivity() {
+class Nav_Activity : AppCompatActivity(),RequestCommunicator {
 
     private lateinit var firebaseStorage: FirebaseStorage
 
@@ -146,6 +146,10 @@ class Nav_Activity : AppCompatActivity() {
            profile.setImageBitmap(bitmap)
         }
 
+    }
+
+    override fun changeFragment(fragment: Fragment,title :String){
+        replaceFragment(fragment,title)
     }
 }
 
