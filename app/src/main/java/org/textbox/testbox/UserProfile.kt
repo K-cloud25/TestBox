@@ -27,7 +27,6 @@ private lateinit var fireAuth: FirebaseAuth
 private lateinit var firebaseDatabase: FirebaseDatabase
 
 
-private lateinit var textView: TextView
 lateinit var ImageUri:Uri
 
 class UserProfile : AppCompatActivity() {
@@ -43,6 +42,7 @@ class UserProfile : AppCompatActivity() {
     private val button by lazy {
         findViewById(R.id.button) as Button
     }
+    var branchtext=""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,6 +52,8 @@ class UserProfile : AppCompatActivity() {
         editTextTextPersonName2 = findViewById (R.id.editTextTextPersonName2)!!
         editTextTextPersonName = findViewById (R.id.editTextTextPersonName)!!
 
+
+
         binding.selectimage.setOnClickListener{
             SelectImage()
         }
@@ -60,15 +62,20 @@ class UserProfile : AppCompatActivity() {
 
 
         button.setOnClickListener(){
-            saveHero()
             UploadImage()
+            saveHero()
+
+
+
+
         }
 
         branchSpinner = findViewById(R.id.branchSpinner)
+        fireAuth = FirebaseAuth.getInstance()
 
         setUpbranchSpinner()
 
-        fireAuth = FirebaseAuth.getInstance()
+
 
     }
 
@@ -104,6 +111,7 @@ class UserProfile : AppCompatActivity() {
         }
     }
     private fun setUpbranchSpinner() {
+
         val adapter = ArrayAdapter.createFromResource(this,
             R.array.branch,android.R.layout.simple_spinner_item)
 
@@ -114,7 +122,10 @@ class UserProfile : AppCompatActivity() {
         branchSpinner.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
 
-                val selectedItem  = p0!!.getItemAtPosition(p2)
+
+                 val selectedItem = p0!!.getItemAtPosition(p2)
+                 branchtext=selectedItem.toString()
+
                 Toast.makeText(this@UserProfile,"Selected $selectedItem",Toast.LENGTH_SHORT).show()
             }
 
@@ -124,6 +135,7 @@ class UserProfile : AppCompatActivity() {
 
         }
     }
+
 
     private fun saveHero(){
         val firstName=editTextTextPersonName3.text.toString().trim()
@@ -145,7 +157,7 @@ class UserProfile : AppCompatActivity() {
 
         val ref = FirebaseDatabase.getInstance().getReference("user")
         val heroId = fireAuth.currentUser?.uid
-        val hero=Userclass(heroId,firstName, lastName, email)
+        val hero=Userclass(heroId,firstName, lastName, email,branchtext)
         if (heroId != null) {
             ref.child(heroId).setValue(hero).addOnSuccessListener {
                 Toast.makeText(applicationContext,"info saved successfully", Toast.LENGTH_LONG).show()
