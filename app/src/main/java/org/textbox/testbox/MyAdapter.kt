@@ -48,14 +48,21 @@ class MyAdapter(private var requestList : ArrayList<requestClass>): RecyclerView
     }
 
     private fun sendRequestID(view:Context,position:Int,requestId:String){
-        Toast.makeText(view,"$requestId + $position",Toast.LENGTH_SHORT).show()
         val fireAuth = FirebaseAuth.getInstance()
 
-        val fireDatabase : DatabaseReference = FirebaseDatabase.getInstance().getReference("teamUps")
-        fireDatabase.child(requestId).child("appliedID").child("${fireAuth.currentUser?.uid}")
-            .setValue(fireAuth.currentUser?.uid)
-            .addOnSuccessListener {
-            Toast.makeText(view,"Request Added",Toast.LENGTH_SHORT).show()
+        val userCheck = requestId.split("_")[1]
+
+        if(userCheck == FirebaseAuth.getInstance().currentUser?.uid){
+            Toast.makeText(view,"Bruh",Toast.LENGTH_SHORT).show()
+        }else{
+
+            val fireDatabase : DatabaseReference = FirebaseDatabase.getInstance().getReference("teamUps")
+            fireDatabase.child(requestId).child("appliedID").child("${fireAuth.currentUser?.uid}")
+                .setValue(fireAuth.currentUser?.uid)
+                .addOnSuccessListener {
+                    Toast.makeText(view,"Request Added",Toast.LENGTH_SHORT).show()
+                }
+
         }
     }
 }

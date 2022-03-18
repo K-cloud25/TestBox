@@ -30,13 +30,32 @@
                 android:layout_marginHorizontal="15dp"
                 />
 
+            <Spinner
+                android:id="@+id/projectList"
+                android:layout_width="150dp"
+                android:layout_marginTop="5dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"/>
+
         </LinearLayout>
+
+        <Button
+            android:id="@+id/delistBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="DeList"
+            android:textSize="18dp"
+            android:textColor="@color/black"
+            android:layout_marginHorizontal="50dp"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/applicantsListRV"
             android:layout_width="match_parent"
+            android:padding="5dp"
+            android:layout_margin="2dp"
             android:background="@color/backGround"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            tools:listitem="@layout/applicant_item_layout"/>
 
     </LinearLayout>
 </FrameLayout>

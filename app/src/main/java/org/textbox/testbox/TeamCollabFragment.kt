@@ -33,6 +33,7 @@ class TeamCollabFragment : Fragment() {
 
     private lateinit var requestComms : RequestCommunicator
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -92,7 +93,6 @@ class TeamCollabFragment : Fragment() {
 
         val saveBtn : Button = view_window.findViewById(R.id.saveBtn)
         saveBtn.setOnClickListener {
-            Toast.makeText(view?.context,"Add Request", Toast.LENGTH_SHORT).show()
             val newRequestDatabase = FirebaseDatabase.getInstance().getReference("teamUps")
 
             //RequestID & Other RequiredID :
