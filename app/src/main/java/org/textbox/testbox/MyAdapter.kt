@@ -13,7 +13,8 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import org.w3c.dom.Text
 
-class MyAdapter(private var requestList : ArrayList<requestClass>): RecyclerView.Adapter<MyAdapter.MyViewHolder>(){
+class MyAdapter(private var requestList : ArrayList<requestClass>):
+    RecyclerView.Adapter<MyAdapter.MyViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.request_item_layout,parent,false)

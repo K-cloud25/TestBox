@@ -5,5 +5,10 @@ data class applicantClass(
     val firstName : String? = null,
     val id : String? = null,
     val lastName : String? = null,
-    val projectID : String? = null
-)
+    var projectID : String? = null
+){
+
+    fun changeProjectID(_projectID : String){
+        projectID = _projectID
+    }
+}

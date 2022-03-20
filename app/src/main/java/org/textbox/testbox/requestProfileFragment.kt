@@ -105,12 +105,12 @@ class requestProfileFragment : Fragment() {
 
     private fun getApplicantsList(context: Context , projectID:String){
         val DBref = FirebaseDatabase.getInstance().getReference("teamUps").child(projectID)
-        var applicationList = ArrayList<String>()
+        val applicationList = ArrayList<String>()
 
         DBref.child("appliedID").addValueEventListener(object: ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 if(snapshot.exists()){
-                    var IDs = snapshot.value.toString().split(",")
+                    val IDs = snapshot.value.toString().split(",")
                     for(i in IDs.indices){
                         var applicantID = IDs[i].split("=")[1].trim()
 
@@ -146,7 +146,8 @@ class requestProfileFragment : Fragment() {
                 val lastName = it.child("lastName").value.toString()
 
 
-                val applicantObj = applicantClass(email, firstName, id, lastName, projectID)
+                val applicantObj = applicantClass(email, firstName, id, lastName)
+                applicantObj.changeProjectID(projectID)
                 applicantList.add(applicantObj)
                 applicantRV.adapter = applicantAdapter(applicantList)
             }

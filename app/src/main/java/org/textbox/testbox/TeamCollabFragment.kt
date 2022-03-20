@@ -131,15 +131,12 @@ class TeamCollabFragment : Fragment() {
                     teamupRView.adapter = MyAdapter(reqArray)
                 }
             }
-            override fun onCancelled(error: DatabaseError) {
-            }
+            override fun onCancelled(error: DatabaseError) {}
         })
 
     }
 
     private fun changeFragment(){
-        Toast.makeText(view?.context,"Check Responses", Toast.LENGTH_SHORT).show()
-
         val fragement = requestProfileFragment()
 
         requestComms = activity as RequestCommunicator

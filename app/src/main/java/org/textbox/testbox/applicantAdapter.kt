@@ -27,9 +27,19 @@ class applicantAdapter(private var applicationList : ArrayList<applicantClass>)
 
         holder.firstNameTV.text = currentItem.firstName
         holder.lastNameTV.text = currentItem.lastName
+
         holder.acceptBtn.setOnClickListener {
-            Toast.makeText(it.context,currentItem.id.toString(),Toast.LENGTH_SHORT).show()
+            Toast.makeText(it.context,currentItem.email.toString(),Toast.LENGTH_SHORT).show()
             holder.emailEV.setText(currentItem.email.toString())
+
+            val intent = Intent(Intent.ACTION_SENDTO).apply{
+                data = Uri.parse("mailto:")
+                putExtra(Intent.EXTRA_EMAIL, arrayOf(currentItem.email.toString()))
+                putExtra(Intent.EXTRA_SUBJECT,currentItem.projectID.toString())
+                putExtra(Intent.EXTRA_TEXT,currentItem.email.toString())
+            }
+            holder.itemView.context.startActivity(intent)
+
         }
         holder.rejectBtn.setOnClickListener {
             val context = it.context
