@@ -42,7 +42,6 @@ class applicantAdapter(private var applicationList : ArrayList<applicantClass>)
 
         }
         holder.rejectBtn.setOnClickListener {
-            val context = it.context
             val DBref = FirebaseDatabase.getInstance().getReference("teamUps").child(currentItem.projectID.toString())
             DBref.child("appliedID").child(currentItem.id.toString()).removeValue()
         }

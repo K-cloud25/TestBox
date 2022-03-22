@@ -137,7 +137,7 @@ class requestProfileFragment : Fragment() {
         applicantRV.setHasFixedSize(true)
 
         var applicantList = arrayListOf<applicantClass>()
-
+        applicantList.clear()
         for (i in applicationList.indices) {
             DBref.child(applicationList[i]).get().addOnSuccessListener {
                 val email = it.child("email").value.toString()

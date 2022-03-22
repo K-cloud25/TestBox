@@ -49,6 +49,7 @@ class SignUp : AppCompatActivity() {
             validateData()
         }
     }
+
     private fun validateData(){
         email = binding.tvEmailID.text.toString().trim()
         password = binding.tvPassWord.text.toString().trim()
@@ -65,6 +66,7 @@ class SignUp : AppCompatActivity() {
             signUpFireBase()
         }
     }
+
     private fun signUpFireBase(){
         progressDialogue.show()
         fireAuth.createUserWithEmailAndPassword(email, password)
