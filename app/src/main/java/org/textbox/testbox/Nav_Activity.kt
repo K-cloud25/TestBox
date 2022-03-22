@@ -68,7 +68,8 @@ class Nav_Activity : AppCompatActivity(),RequestCommunicator {
 
                 R.id.navHome -> Toast.makeText(this,"Home",Toast.LENGTH_SHORT).show()
                 R.id.navClubs -> Toast.makeText(this,"Clubs",Toast.LENGTH_SHORT).show()
-                R.id.navNoticeBoard -> Toast.makeText(this,"Notice Board`",Toast.LENGTH_SHORT).show()
+                R.id.navNoticeBoard -> Toast.makeText(this,"Notice Board",Toast.LENGTH_SHORT).show()
+                R.id.navAssignment -> Toast.makeText(this,"Assignment",Toast.LENGTH_SHORT).show()
                 R.id.navLogout -> logoutUser()
                 R.id.navTeamups -> replaceFragment(TeamCollabFragment(),it.title.toString())
 
@@ -121,7 +122,7 @@ class Nav_Activity : AppCompatActivity(),RequestCommunicator {
             if(it.exists()){
                 val firstName = it.child("firstName").value.toString()
                 val email = it.child("email").value.toString()
-                
+
                 val firstNav : TextView = navView.getHeaderView(0).findViewById(R.id.navHeaderUsername)
                 val emailNav : TextView = navView.getHeaderView(0).findViewById(R.id.navHeaderEmail)
 
@@ -137,8 +138,10 @@ class Nav_Activity : AppCompatActivity(),RequestCommunicator {
 
         val filename = fireAuth.currentUser?.uid
         val Storageref = FirebaseStorage.getInstance().getReference("ProfilePic/$filename")
+
         val localfile=File.createTempFile("uid","jpg")
         val profile : de.hdodenhof.circleimageview.CircleImageView = navView.getHeaderView(0).findViewById(R.id.profilePic)
+
 
 
         Storageref.getFile(localfile).addOnSuccessListener {
@@ -146,11 +149,12 @@ class Nav_Activity : AppCompatActivity(),RequestCommunicator {
            profile.setImageBitmap(bitmap)
         }
 
+
     }
 
     override fun changeFragment(fragment: Fragment,title :String){
         replaceFragment(fragment,title)
     }
-}
 
+}
 

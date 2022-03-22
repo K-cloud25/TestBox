@@ -80,17 +80,19 @@ class UserProfile : AppCompatActivity() {
     }
 
     private fun UploadImage() {
+
         val progress=ProgressDialog(this)
         progress.setMessage("Uploading File ...")
         progress.setCancelable(false)
         progress.show()
         val filename=fireAuth.currentUser?.uid
         val Storageref =FirebaseStorage.getInstance().getReference("ProfilePic/$filename")
+        if( ImageUri!=null){
         Storageref.putFile(ImageUri).addOnSuccessListener {
             binding.profilePic.setImageURI(null)
             Toast.makeText(this@UserProfile,"Successfully Uploaded",Toast.LENGTH_SHORT).show()
 
-        }
+        }}
 
 
     }

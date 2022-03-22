@@ -15,6 +15,9 @@
         <item
             android:id="@+id/navClubs"
             android:title="Clubs"/>
+        <item
+            android:id="@+id/navAssignment"
+            android:title="Assignment"/>
 
         <item
             android:id="@+id/navTeamups"
