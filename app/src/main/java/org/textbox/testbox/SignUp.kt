@@ -48,6 +48,13 @@ class SignUp : AppCompatActivity() {
         binding.signInBtn.setOnClickListener {
             validateData()
         }
+
+        //Club Sign up Button
+        binding.clubSignUp.setOnClickListener {
+            val intent = Intent(this,ClubSignUp::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 
     private fun validateData(){

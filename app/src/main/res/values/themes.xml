@@ -25,4 +25,13 @@
         <item name="backgroundColor">@color/hamburgerColor</item>
         <item name="backgroundTint">@color/hamburgerColor</item>
     </style>
+
+    <style name="Theme.TestBox.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.TestBox.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.TestBox.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

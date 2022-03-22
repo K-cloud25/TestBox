@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ClubSignUp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/backGround"
+        android:orientation="vertical">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/clubProfilePic"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginVertical="15dp"
+            android:padding="3dp"
+            android:src="@drawable/profilepic"/>
+
+
+        <EditText
+            android:id="@+id/ClubName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginVertical="15dp"
+            android:hint="Enter ClubName here"
+            android:textColorHint="@color/black"
+            android:background="@color/white"
+            android:textColor="@color/black"
+            android:padding="3dp"
+            android:gravity="center"
+            android:importantForAutofill="no"
+            tools:ignore="TextFields" />
+
+        <EditText
+            android:id="@+id/ClubEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginVertical="15dp"
+            android:hint="Enter Club Email here"
+            android:inputType="textPassword"
+            android:textColorHint="@color/black"
+            android:background="@color/white"
+            android:textColor="@color/black"
+            android:padding="3dp"
+            android:gravity="center"
+            android:autofillHints="no"
+            tools:ignore="TextFields" />
+
+        <EditText
+            android:id="@+id/ClubPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginVertical="15dp"
+            android:hint="Enter Password here"
+            android:textColorHint="@color/black"
+            android:background="@color/white"
+            android:textColor="@color/black"
+            android:padding="3dp"
+            android:gravity="center"
+            android:autofillHints="no"
+            tools:ignore="TextFields" />
+
+        <TextView
+            android:id="@+id/FoundingDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginVertical="15dp"
+            android:text="Set Founding Date"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:background="@color/white"
+            android:padding="3dp"
+            android:textSize="18sp"/>
+
+    </LinearLayout>
+</RelativeLayout>

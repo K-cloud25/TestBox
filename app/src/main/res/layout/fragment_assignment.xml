@@ -11,9 +11,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-
-        android:cardPreventCornerOverlap="true"
-        android:cardUseCompatPadding="true"
         android:visibility="visible"
         app:cardBackgroundColor="#FFD8BC"
         app:cardCornerRadius="20dp"
