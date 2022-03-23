@@ -27,6 +27,8 @@ class SignUp : AppCompatActivity() {
 
     private lateinit var binding : ActivitySignUpBinding
 
+    private var clickedTimes : Int = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySignUpBinding.inflate(layoutInflater)
@@ -50,10 +52,17 @@ class SignUp : AppCompatActivity() {
         }
 
         //Club Sign up Button
+        clickedTimes = 0
         binding.clubSignUp.setOnClickListener {
-            val intent = Intent(this,ClubSignUp::class.java)
-            startActivity(intent)
-            finish()
+            clickedTimes++
+            if(clickedTimes==5){
+                Toast.makeText(this,"clicked $clickedTimes",Toast.LENGTH_SHORT).show()
+            }
+            if(clickedTimes==10){
+                val intent = Intent(this,ClubSignUp::class.java)
+                startActivity(intent)
+                finish()
+            }
         }
     }
 

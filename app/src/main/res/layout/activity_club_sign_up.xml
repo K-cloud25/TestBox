@@ -84,5 +84,45 @@
             android:padding="3dp"
             android:textSize="18sp"/>
 
+        <EditText
+            android:id="@+id/ClubPresidentName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginVertical="15dp"
+            android:hint="Enter Club's President Name here"
+            android:textColorHint="@color/black"
+            android:background="@color/white"
+            android:textColor="@color/black"
+            android:padding="3dp"
+            android:gravity="center"
+            android:importantForAutofill="no"
+            tools:ignore="TextFields" />
+
+        <EditText
+            android:id="@+id/ClubWebsite"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginVertical="15dp"
+            android:hint="Enter Club Website link here"
+            android:textColorHint="@color/black"
+            android:background="@color/white"
+            android:textColor="@color/black"
+            android:padding="3dp"
+            android:gravity="center"
+            android:inputType="text"/>
+
+        <Button
+            android:id="@+id/saveBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="SignUP"
+            android:textColor="@color/black"/>
+
+
     </LinearLayout>
 </RelativeLayout>

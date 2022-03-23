@@ -28,4 +28,6 @@
 
     <color name="darkGrey">#C4C4C4</color>
     <color name="lightGrey">#D2D2D2</color>
+
+    <color name="SignupBgColor">#F4ECE9</color>
 </resources>
