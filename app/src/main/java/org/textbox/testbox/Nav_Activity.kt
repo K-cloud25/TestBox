@@ -117,7 +117,7 @@ class Nav_Activity : AppCompatActivity(),RequestCommunicator {
         val cUser = fireAuth.currentUser
         val uid = cUser?.uid.toString()
 
-        var ref = FirebaseDatabase.getInstance().getReference("user")
+        val ref = FirebaseDatabase.getInstance().getReference("user")
         ref.child(uid).get().addOnSuccessListener {
             if(it.exists()){
                 val firstName = it.child("firstName").value.toString()
@@ -130,7 +130,19 @@ class Nav_Activity : AppCompatActivity(),RequestCommunicator {
                 emailNav.text = email
             }
         }.addOnFailureListener {
-            Toast.makeText(this,"Unable to read Data",Toast.LENGTH_SHORT).show()
+            val DBref = FirebaseDatabase.getInstance().getReference("Clubs")
+            DBref.child(uid).get().addOnSuccessListener {
+                if(it.exists()){
+                    val firstName = it.child("clubName").value.toString()
+                    val email = it.child("clubEmail").value.toString()
+
+                    val firstNav : TextView = navView.getHeaderView(0).findViewById(R.id.navHeaderUsername)
+                    val emailNav : TextView = navView.getHeaderView(0).findViewById(R.id.navHeaderEmail)
+
+                    firstNav.text = firstName
+                    emailNav.text = email
+                }
+            }
         }
     }
     private fun disppic(){
