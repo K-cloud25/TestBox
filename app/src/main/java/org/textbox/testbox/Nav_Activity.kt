@@ -6,8 +6,6 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
-import android.widget.Button
-import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -15,17 +13,14 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
-import de.hdodenhof.circleimageview.CircleImageView
+import org.textbox.testbox.*
 import org.textbox.testbox.databinding.ActivityNavBinding
 import java.io.File
 
 
-class Nav_Activity : AppCompatActivity(),RequestCommunicator {
+class Nav_Activity : AppCompatActivity(), RequestCommunicator {
 
     private lateinit var firebaseStorage: FirebaseStorage
 
@@ -37,6 +32,7 @@ class Nav_Activity : AppCompatActivity(),RequestCommunicator {
 
     private lateinit var drawerLayout:DrawerLayout
 
+    private var IsUser : Boolean = true
 
 
     //Firebase Auth
@@ -53,7 +49,7 @@ class Nav_Activity : AppCompatActivity(),RequestCommunicator {
         val navView : NavigationView = findViewById(R.id.nav_view)
 
 
-        toggle = ActionBarDrawerToggle(this,drawerLayout,R.string.open,R.string.close)
+        toggle = ActionBarDrawerToggle(this,drawerLayout, R.string.open, R.string.close)
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
 
@@ -68,7 +64,7 @@ class Nav_Activity : AppCompatActivity(),RequestCommunicator {
 
                 R.id.navHome -> Toast.makeText(this,"Home",Toast.LENGTH_SHORT).show()
                 R.id.navClubs -> Toast.makeText(this,"Clubs",Toast.LENGTH_SHORT).show()
-                R.id.navNoticeBoard -> Toast.makeText(this,"Notice Board",Toast.LENGTH_SHORT).show()
+                R.id.navNoticeBoard -> changeNoticeBoard()
                 R.id.navAssignment -> Toast.makeText(this,"Assignment",Toast.LENGTH_SHORT).show()
                 R.id.navLogout -> logoutUser()
                 R.id.navTeamups -> replaceFragment(TeamCollabFragment(),it.title.toString())
@@ -120,6 +116,10 @@ class Nav_Activity : AppCompatActivity(),RequestCommunicator {
         val ref = FirebaseDatabase.getInstance().getReference("user")
         ref.child(uid).get().addOnSuccessListener {
             if(it.exists()){
+
+                IsUser = true
+                Toast.makeText(this,IsUser.toString(),Toast.LENGTH_SHORT).show()
+
                 val firstName = it.child("firstName").value.toString()
                 val email = it.child("email").value.toString()
 
@@ -128,23 +128,30 @@ class Nav_Activity : AppCompatActivity(),RequestCommunicator {
 
                 firstNav.text = firstName
                 emailNav.text = email
-            }
-        }.addOnFailureListener {
-            val DBref = FirebaseDatabase.getInstance().getReference("Clubs")
-            DBref.child(uid).get().addOnSuccessListener {
-                if(it.exists()){
-                    val firstName = it.child("clubName").value.toString()
-                    val email = it.child("clubEmail").value.toString()
+            }else{
 
-                    val firstNav : TextView = navView.getHeaderView(0).findViewById(R.id.navHeaderUsername)
-                    val emailNav : TextView = navView.getHeaderView(0).findViewById(R.id.navHeaderEmail)
+                IsUser = false
+                Toast.makeText(this,IsUser.toString(),Toast.LENGTH_SHORT).show()
 
-                    firstNav.text = firstName
-                    emailNav.text = email
+                val DBref = FirebaseDatabase.getInstance().getReference("Clubs")
+                DBref.child(uid).get().addOnSuccessListener {
+                    if(it.exists()){
+                        val firstName = it.child("clubName").value.toString()
+                        val email = it.child("clubEmail").value.toString()
+
+                        val firstNav : TextView = navView.getHeaderView(0).findViewById(R.id.navHeaderUsername)
+                        val emailNav : TextView = navView.getHeaderView(0).findViewById(R.id.navHeaderEmail)
+
+                        firstNav.text = firstName
+                        emailNav.text = email
+                    }
                 }
             }
+        }.addOnFailureListener {
+
         }
     }
+
     private fun disppic(){
         val navView : NavigationView = findViewById(R.id.nav_view)
 
@@ -152,7 +159,9 @@ class Nav_Activity : AppCompatActivity(),RequestCommunicator {
         val Storageref = FirebaseStorage.getInstance().getReference("ProfilePic/$filename")
 
         val localfile=File.createTempFile("uid","jpg")
-        val profile : de.hdodenhof.circleimageview.CircleImageView = navView.getHeaderView(0).findViewById(R.id.profilePic)
+        val profile : de.hdodenhof.circleimageview.CircleImageView = navView.getHeaderView(0).findViewById(
+            R.id.profilePic
+        )
 
 
 
@@ -168,5 +177,13 @@ class Nav_Activity : AppCompatActivity(),RequestCommunicator {
         replaceFragment(fragment,title)
     }
 
+    private fun changeNoticeBoard(){
+        getData()
+        if(IsUser){
+            replaceFragment(NoticeBoard_User_Fragment(),"NOTICE BOARD")
+        }else{
+            replaceFragment(NoticeBoard_Club_Fragment(),"NOTICE BOARD")
+        }
+    }
 }
 

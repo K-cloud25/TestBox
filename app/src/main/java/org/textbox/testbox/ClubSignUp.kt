@@ -1,22 +1,14 @@
 package org.textbox.testbox
 
 import android.app.DatePickerDialog
-import android.app.ProgressDialog
-import android.content.Intent
-import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Patterns
-import android.view.LayoutInflater
 import android.widget.Toast
-import androidx.appcompat.app.ActionBar
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import org.intellij.lang.annotations.JdkConstants
 import org.textbox.testbox.databinding.ActivityClubSignUpBinding
-import java.text.SimpleDateFormat
 import java.util.*
 
 class ClubSignUp : AppCompatActivity() {

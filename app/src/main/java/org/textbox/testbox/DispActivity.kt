@@ -9,6 +9,8 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import org.textbox.testbox.databinding.ActivityMainBinding
+
+
 private lateinit var binding: ActivityMainBinding
 
 

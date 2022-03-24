@@ -1,22 +1,16 @@
 package org.textbox.testbox
 
-import android.app.Activity
 import android.app.ProgressDialog
 import android.content.Intent
-import android.content.res.Configuration
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
 import android.widget.*
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
-import org.textbox.testbox.databinding.ActivityMainBinding
-import org.textbox.testbox.databinding.ActivitySignUpBinding
 import org.textbox.testbox.databinding.ActivityUserProfileBinding
-import java.net.URI
 
 private lateinit var binding: ActivityUserProfileBinding
 
@@ -159,11 +153,11 @@ class UserProfile : AppCompatActivity() {
 
         val ref = FirebaseDatabase.getInstance().getReference("user")
         val heroId = fireAuth.currentUser?.uid
-        val hero=Userclass(heroId,firstName, lastName, email,branchtext)
+        val hero= Userclass(heroId,firstName, lastName, email,branchtext)
         if (heroId != null) {
             ref.child(heroId).setValue(hero).addOnSuccessListener {
                 Toast.makeText(applicationContext,"info saved successfully", Toast.LENGTH_LONG).show()
-                val intent = Intent(this,Nav_Activity::class.java)
+                val intent = Intent(this, Nav_Activity::class.java)
                 startActivity(intent)
                 finish()
             }

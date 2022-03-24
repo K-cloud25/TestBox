@@ -59,7 +59,7 @@ class SignUp : AppCompatActivity() {
                 Toast.makeText(this,"clicked $clickedTimes",Toast.LENGTH_SHORT).show()
             }
             if(clickedTimes==10){
-                val intent = Intent(this,ClubSignUp::class.java)
+                val intent = Intent(this, ClubSignUp::class.java)
                 startActivity(intent)
                 finish()
             }
@@ -93,7 +93,7 @@ class SignUp : AppCompatActivity() {
                 val email = fireBaseUser!!.email
                 Toast.makeText(this,"Account created with $email",Toast.LENGTH_SHORT).show()
 
-                startActivity(Intent(this,UserProfile::class.java))
+                startActivity(Intent(this, UserProfile::class.java))
                 finish()
             }
             .addOnFailureListener { e->
