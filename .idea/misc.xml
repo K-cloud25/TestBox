@@ -4,6 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/TestBox/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.172" />
+        <entry key="..\:/TestBox/app/src/main/res/drawable/dark_button_bg.xml" value="0.15" />
+        <entry key="..\:/TestBox/app/src/main/res/drawable/dark_edittext_bg.xml" value="0.15" />
+        <entry key="..\:/TestBox/app/src/main/res/drawable/dark_popup_layout.xml" value="0.15" />
         <entry key="..\:/TestBox/app/src/main/res/drawable/edit_background_default.xml" value="0.155" />
         <entry key="..\:/TestBox/app/src/main/res/drawable/edit_background_error.xml" value="0.1065" />
         <entry key="..\:/TestBox/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.201" />
@@ -30,6 +33,7 @@
         <entry key="..\:/TestBox/app/src/main/res/layout/fragment_teamup.xml" value="0.22" />
         <entry key="..\:/TestBox/app/src/main/res/layout/nav_header.xml" value="0.25" />
         <entry key="..\:/TestBox/app/src/main/res/layout/notice_item_layout.xml" value="0.2" />
+        <entry key="..\:/TestBox/app/src/main/res/layout/popup_new_notice_layout.xml" value="0.25" />
         <entry key="..\:/TestBox/app/src/main/res/layout/popup_new_request_layout.xml" value="0.22" />
         <entry key="..\:/TestBox/app/src/main/res/layout/request_item_layout.xml" value="0.18" />
         <entry key="..\:/TestBox/app/src/main/res/layout/teamup_request_layout.xml" value="0.33" />

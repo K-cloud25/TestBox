@@ -44,12 +44,12 @@
             android:orientation="vertical">
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/teamUpRV"
+                android:id="@+id/noticeRV"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scrollbars="vertical"
                 android:paddingHorizontal="10dp"
-                tools:listitem="@layout/notice_item_layout" />
+                tools:listitem="@layout/notice_item_layout"/>
 
         </LinearLayout>
     </LinearLayout>

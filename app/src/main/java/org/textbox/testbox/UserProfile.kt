@@ -53,24 +53,14 @@ class UserProfile : AppCompatActivity() {
         }
 
 
-
-
         button.setOnClickListener(){
             UploadImage()
             saveHero()
-
-
-
-
         }
 
         branchSpinner = findViewById(R.id.branchSpinner)
         fireAuth = FirebaseAuth.getInstance()
-
         setUpbranchSpinner()
-
-
-
     }
 
     private fun UploadImage() {
@@ -85,10 +75,7 @@ class UserProfile : AppCompatActivity() {
         Storageref.putFile(ImageUri).addOnSuccessListener {
             binding.profilePic.setImageURI(null)
             Toast.makeText(this@UserProfile,"Successfully Uploaded",Toast.LENGTH_SHORT).show()
-
         }}
-
-
     }
 
     private fun SelectImage() {
@@ -96,7 +83,6 @@ class UserProfile : AppCompatActivity() {
         intent.type="image/"
         intent.action=Intent.ACTION_GET_CONTENT
         startActivityForResult(intent,100)
-
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -117,8 +103,6 @@ class UserProfile : AppCompatActivity() {
 
         branchSpinner.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-
-
                  val selectedItem = p0!!.getItemAtPosition(p2)
                  branchtext=selectedItem.toString()
 

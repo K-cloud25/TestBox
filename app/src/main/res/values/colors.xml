@@ -30,4 +30,11 @@
     <color name="lightGrey">#D2D2D2</color>
 
     <color name="SignupBgColor">#F4ECE9</color>
+
+    //Club Colors aka Dark Mode
+    <color name="backgroundDark">#1C1C1C</color>
+    <color name="buttonBG">#56595C</color>
+    <color name="editTextBG">#C4C4C4</color>
+    <color name="textDark">#FFCB9E</color>
+
 </resources>
