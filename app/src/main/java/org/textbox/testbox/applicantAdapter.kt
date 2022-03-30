@@ -1,6 +1,5 @@
-package org.textbox.testbox
+package org.textbox.testbox.adapters
 
-import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.view.LayoutInflater
@@ -12,7 +11,8 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.FirebaseDatabase
-import org.w3c.dom.Text
+import org.textbox.testbox.R
+import org.textbox.testbox.classes.applicantClass
 
 class applicantAdapter(private var applicationList : ArrayList<applicantClass>)
     : RecyclerView.Adapter<applicantAdapter.MyViewHolder>(){

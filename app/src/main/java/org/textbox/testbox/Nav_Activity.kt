@@ -65,7 +65,7 @@ class Nav_Activity : AppCompatActivity(), RequestCommunicator {
                 R.id.navHome -> Toast.makeText(this,"Home",Toast.LENGTH_SHORT).show()
                 R.id.navClubs -> Toast.makeText(this,"Clubs",Toast.LENGTH_SHORT).show()
                 R.id.navNoticeBoard -> changeNoticeBoard()
-                R.id.navAssignment -> Toast.makeText(this,"Assignment",Toast.LENGTH_SHORT).show()
+                R.id.navAssignment -> startassignment()
                 R.id.navLogout -> logoutUser()
                 R.id.navTeamups -> replaceFragment(TeamCollabFragment(),it.title.toString())
 
@@ -75,6 +75,11 @@ class Nav_Activity : AppCompatActivity(), RequestCommunicator {
         fireAuth = FirebaseAuth.getInstance()
         getData()
         disppic()
+    }
+    private fun startassignment(){
+        val intent= Intent(this,assignment::class.java)
+
+        startActivity(intent)
     }
 
     private fun logoutUser(){

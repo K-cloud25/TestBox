@@ -1,4 +1,4 @@
-package org.textbox.testbox
+package org.textbox.testbox.classes
 
 data class requestClass(
     val requestID : String? = null,

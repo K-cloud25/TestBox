@@ -1,4 +1,4 @@
-package org.textbox.testbox
+package org.textbox.testbox.classes
 
 data class applicantClass(
     val email : String? = null,
