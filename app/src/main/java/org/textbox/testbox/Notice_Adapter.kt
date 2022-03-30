@@ -1,5 +1,6 @@
 package org.textbox.testbox
 
+import android.content.Intent
 import android.graphics.BitmapFactory
 import android.view.LayoutInflater
 import android.view.View
@@ -31,6 +32,10 @@ class Notice_Adapter(private var noticeList : ArrayList<Notice_Class>)
 
         holder.imageView.setOnClickListener {
             Toast.makeText(holder.itemView.context,id,Toast.LENGTH_SHORT).show()
+
+            val intent = Intent(holder.itemView.context,NoticeFullScreen::class.java)
+            intent.putExtra("PosterId",currentItem.noticeId)
+            holder.itemView.context.startActivity(intent)
         }
     }
 
