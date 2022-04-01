@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/darkbackgroundphoto"
     tools:context=".ClubSignUp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/backGround"
         android:orientation="vertical">
 
         <de.hdodenhof.circleimageview.CircleImageView
@@ -19,7 +19,7 @@
             android:layout_gravity="center"
             android:layout_marginVertical="15dp"
             android:padding="3dp"
-            android:src="@drawable/profilepic"/>
+            android:src="@drawable/profilepic" />
 
 
         <EditText
@@ -29,13 +29,13 @@
             android:layout_gravity="center"
             android:layout_marginHorizontal="30dp"
             android:layout_marginVertical="15dp"
-            android:hint="Enter ClubName here"
-            android:textColorHint="@color/black"
-            android:background="@color/white"
-            android:textColor="@color/black"
-            android:padding="3dp"
+            android:background="@drawable/dark_edittext_bg"
             android:gravity="center"
+            android:hint="Enter ClubName here"
             android:importantForAutofill="no"
+            android:padding="3dp"
+            android:textColor="@color/textDark"
+            android:textColorHint="@color/textDark"
             tools:ignore="TextFields" />
 
         <EditText
@@ -45,14 +45,14 @@
             android:layout_gravity="center"
             android:layout_marginHorizontal="30dp"
             android:layout_marginVertical="15dp"
+            android:autofillHints="no"
+            android:background="@drawable/dark_edittext_bg"
+            android:gravity="center"
             android:hint="Enter Club Email here"
             android:inputType="textEmailAddress"
-            android:textColorHint="@color/black"
-            android:background="@color/white"
-            android:textColor="@color/black"
             android:padding="3dp"
-            android:gravity="center"
-            android:autofillHints="no"
+            android:textColor="@color/textDark"
+            android:textColorHint="@color/textDark"
             tools:ignore="TextFields" />
 
         <EditText
@@ -62,14 +62,14 @@
             android:layout_gravity="center"
             android:layout_marginHorizontal="30dp"
             android:layout_marginVertical="15dp"
+            android:autofillHints="no"
+            android:background="@drawable/dark_edittext_bg"
+            android:gravity="center"
             android:hint="Enter Password here"
             android:inputType="textPassword"
-            android:textColorHint="@color/black"
-            android:background="@color/white"
-            android:textColor="@color/black"
             android:padding="3dp"
-            android:gravity="center"
-            android:autofillHints="no"
+            android:textColor="@color/textDark"
+            android:textColorHint="@color/textDark"
             tools:ignore="TextFields" />
 
         <TextView
@@ -78,12 +78,12 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="30dp"
             android:layout_marginVertical="15dp"
-            android:text="Set Founding Date"
-            android:textColor="@color/black"
+            android:background="@drawable/dark_edittext_bg"
             android:gravity="center"
-            android:background="@color/white"
             android:padding="3dp"
-            android:textSize="18sp"/>
+            android:text="Set Founding Date"
+            android:textColor="@color/textDark"
+            android:textSize="18sp" />
 
         <EditText
             android:id="@+id/ClubPresidentName"
@@ -92,13 +92,13 @@
             android:layout_gravity="center"
             android:layout_marginHorizontal="30dp"
             android:layout_marginVertical="15dp"
-            android:hint="Enter Club's President Name here"
-            android:textColorHint="@color/black"
-            android:background="@color/white"
-            android:textColor="@color/black"
-            android:padding="3dp"
+            android:background="@drawable/dark_edittext_bg"
             android:gravity="center"
+            android:hint="Enter Club's President Name here"
             android:importantForAutofill="no"
+            android:padding="3dp"
+            android:textColor="@color/textDark"
+            android:textColorHint="@color/textDark"
             tools:ignore="TextFields" />
 
         <EditText
@@ -108,13 +108,13 @@
             android:layout_gravity="center"
             android:layout_marginHorizontal="30dp"
             android:layout_marginVertical="15dp"
-            android:hint="Enter Club Website link here"
-            android:textColorHint="@color/black"
-            android:background="@color/white"
-            android:textColor="@color/black"
-            android:padding="3dp"
+            android:background="@drawable/dark_edittext_bg"
             android:gravity="center"
-            android:inputType="text"/>
+            android:hint="Enter Club Website link here"
+            android:inputType="text"
+            android:padding="3dp"
+            android:textColor="@color/textDark"
+            android:textColorHint="@color/textDark" />
 
         <Button
             android:id="@+id/signUPBtn"
@@ -122,7 +122,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="SignUP"
-            android:textColor="@color/black"/>
+            android:background="@drawable/dark_button_bg"
+            android:textColor="@color/textDark" />
 
 
     </LinearLayout>

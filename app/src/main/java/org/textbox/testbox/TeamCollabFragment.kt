@@ -17,6 +17,8 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import de.hdodenhof.circleimageview.CircleImageView
 import org.textbox.testbox.classes.requestClass
+import java.util.*
+import kotlin.collections.ArrayList
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
@@ -31,6 +33,7 @@ class TeamCollabFragment : Fragment() {
 
     private lateinit var requestComms : RequestCommunicator
 
+    private lateinit var todayDate : String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,6 +58,9 @@ class TeamCollabFragment : Fragment() {
         contactBtn.setOnClickListener {
             changeFragment()
         }
+
+        val cal = Calendar.getInstance()
+        todayDate = cal[Calendar.DAY_OF_YEAR].toString()
 
         setUpRV()
 
@@ -101,7 +107,7 @@ class TeamCollabFragment : Fragment() {
             val reqEditId = reqEdit.text.toString()
 
             //making Request Object
-            val request = requestClass(requestID,projectName,reqEditId,userNameId,work)
+            val request = requestClass(requestID,projectName,reqEditId,userNameId,work,todayDate)
             //Pushing Object To fireDataBase
             newRequestDatabase.child(requestID).setValue(request).addOnSuccessListener {
                 Toast.makeText(view?.context,"Request Added",Toast.LENGTH_SHORT).show()
@@ -124,7 +130,22 @@ class TeamCollabFragment : Fragment() {
                     reqArray.clear()
                     for(requestSnapShot in snapshot.children){
                         val request = requestSnapShot.getValue(requestClass::class.java)
-                        reqArray.add(request!!)
+
+                        val validDateCheck = request?.validDate.toString().toInt()
+
+                        val diff = Math.abs((validDateCheck - todayDate.toInt()))
+
+                        if(diff > 31){
+                            Toast.makeText(view?.context,"$diff",Toast.LENGTH_SHORT).show()
+
+                            val fireDB = FirebaseDatabase.getInstance().getReference("teamUps")
+                                .child(request?.requestID.toString())
+
+                            fireDB.removeValue()
+
+                        }else{
+                            reqArray.add(request!!)
+                        }
                     }
                     teamupRView.adapter = MyAdapter(reqArray)
                 }

@@ -25,4 +25,22 @@
         <item name="backgroundColor">@color/hamburgerColor</item>
         <item name="backgroundTint">@color/hamburgerColor</item>
     </style>
+
+    //Dark Mode Use
+    <style name="Theme.TestBoxDark" parent="Theme.AppCompat.DayNight.DarkActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/TopBar</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_200</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">@color/backgroundDark</item>
+        <!-- Customize your theme here. -->
+
+        <!-- Action Bar Customization-->
+        <item name="titleTextColor">@color/HeaderText</item>
+    </style>
 </resources>

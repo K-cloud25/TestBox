@@ -34,8 +34,11 @@
 
     //Club Colors aka Dark Mode
     <color name="backgroundDark">#1C1C1C</color>
-    <color name="buttonBG">#56595C</color>
-    <color name="editTextBG">#C4C4C4</color>
-    <color name="textDark">#FFCB9E</color>
+    <color name="buttonBG">#6495ED</color>
+    <color name="editTextBG">#739FB1</color>
+    <color name="textDark">#656565</color>
+    <color name="ButtonText">#03192F</color>
+    <color name="HeaderText">#6495ED</color>
+    <color name="TopBar">#1C1C1C</color>
 
 </resources>

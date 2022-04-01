@@ -8,10 +8,13 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import org.textbox.testbox.classes.requestClass
+import java.util.*
+import kotlin.collections.ArrayList
 
 class MyAdapter(private var requestList : ArrayList<requestClass>):
     RecyclerView.Adapter<MyAdapter.MyViewHolder>(){
@@ -64,6 +67,11 @@ class MyAdapter(private var requestList : ArrayList<requestClass>):
                     Toast.makeText(view,"Request Added",Toast.LENGTH_SHORT).show()
                 }
 
+            val cal = Calendar.getInstance()
+            val todayDate = cal[Calendar.DAY_OF_YEAR].toString()
+
+            FirebaseDatabase.getInstance().getReference("teamUps")
+                .child(requestId).child("validDate").setValue(todayDate)
         }
     }
 }

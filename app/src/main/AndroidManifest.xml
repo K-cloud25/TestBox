@@ -29,7 +29,7 @@
             android:name=".ClubSignUp"
             android:exported="false"
             android:label="@string/title_activity_club_sign_up"
-            android:theme="@style/Theme.TestBox.NoActionBar" />
+            android:theme="@style/Theme.TestBoxDark" />
         <activity
             android:name=".DispActivity"
             android:exported="false" />
