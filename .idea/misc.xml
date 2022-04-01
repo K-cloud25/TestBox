@@ -20,7 +20,6 @@
         <entry key="..\:/TestBox/app/src/main/res/layout/activity_club_sign_up.xml" value="0.25" />
         <entry key="..\:/TestBox/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/TestBox/app/src/main/res/layout/activity_nav.xml" value="0.1" />
-        <entry key="..\:/TestBox/app/src/main/res/layout/activity_notice_full_screen.xml" value="0.1621376811594203" />
         <entry key="..\:/TestBox/app/src/main/res/layout/activity_sign_up.xml" value="0.22" />
         <entry key="..\:/TestBox/app/src/main/res/layout/activity_user_profile.xml" value="0.18" />
         <entry key="..\:/TestBox/app/src/main/res/layout/applicant_item_layout.xml" value="0.25" />
@@ -44,6 +43,7 @@
         <entry key="..\:/Users/Prajwal/AndroidStudioProjects/TestBox/app/src/main/res/layout/activity_club_sign_up.xml" value="0.1640625" />
         <entry key="..\:/Users/Prajwal/AndroidStudioProjects/TestBox/app/src/main/res/layout/activity_main.xml" value="0.1640625" />
         <entry key="..\:/Users/Prajwal/AndroidStudioProjects/TestBox/app/src/main/res/layout/activity_nav.xml" value="0.1640625" />
+        <entry key="..\:/Users/Prajwal/AndroidStudioProjects/TestBox/app/src/main/res/layout/activity_pdf.xml" value="0.4466666666666667" />
         <entry key="..\:/Users/Prajwal/AndroidStudioProjects/TestBox/app/src/main/res/layout/activity_sign_up.xml" value="0.1640625" />
         <entry key="..\:/Users/Prajwal/AndroidStudioProjects/TestBox/app/src/main/res/layout/activity_user_profile.xml" value="0.2608695652173913" />
         <entry key="..\:/Users/Prajwal/AndroidStudioProjects/TestBox/app/src/main/res/layout/applicant_item_layout.xml" value="0.15555555555555556" />
@@ -52,6 +52,7 @@
         <entry key="..\:/Users/Prajwal/AndroidStudioProjects/TestBox/app/src/main/res/layout/fragment_request_profile.xml" value="0.15555555555555556" />
         <entry key="..\:/Users/Prajwal/AndroidStudioProjects/TestBox/app/src/main/res/layout/fragment_team_collab.xml" value="0.15555555555555556" />
         <entry key="..\:/Users/Prajwal/AndroidStudioProjects/TestBox/app/src/main/res/layout/nav_header.xml" value="0.1" />
+        <entry key="..\:/Users/Prajwal/AndroidStudioProjects/TestBox/app/src/main/res/layout/notice_item_layout.xml" value="0.1796875" />
         <entry key="..\:/Users/Prajwal/AndroidStudioProjects/TestBox/app/src/main/res/layout/popup_new_request_layout.xml" value="0.15555555555555556" />
         <entry key="..\:/Users/Prajwal/AndroidStudioProjects/TestBox/app/src/main/res/layout/request_item_layout.xml" value="0.15555555555555556" />
       </map>

@@ -36,11 +36,11 @@
 
             <TextView
                 android:id="@+id/branchname"
-                android:layout_width="13dp"
-                android:layout_height="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
-                android:text=""
+                android:text="bruh"
                 android:textAlignment="center"
                 android:textColor="@color/lightbrown"
                 android:textStyle="bold"

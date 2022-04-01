@@ -14,14 +14,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TestBox">
         <activity
+            android:name=".pdf"
+            android:exported="false" />
+        <activity
             android:name=".NoticeFullScreen"
             android:exported="false" />
         <activity
             android:name=".assignment_branches"
             android:exported="false" />
-        <activity
-            android:name=".branch_assignment"
-            android:exported="false" />
+
         <activity
             android:name=".assignment"
             android:exported="false" />
