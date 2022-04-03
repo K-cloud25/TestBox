@@ -4,7 +4,6 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/TestBox/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.172" />
-        <entry key="..\:/TestBox/app/src/main/res/drawable/button_all_rounded.xml" value="0.1765" />
         <entry key="..\:/TestBox/app/src/main/res/drawable/dark_button_bg.xml" value="0.15" />
         <entry key="..\:/TestBox/app/src/main/res/drawable/dark_edittext_bg.xml" value="0.15" />
         <entry key="..\:/TestBox/app/src/main/res/drawable/dark_popup_layout.xml" value="0.15" />
@@ -15,26 +14,18 @@
         <entry key="..\:/TestBox/app/src/main/res/drawable/inner_request_background.xml" value="0.211" />
         <entry key="..\:/TestBox/app/src/main/res/drawable/menubackground.xml" value="0.172" />
         <entry key="..\:/TestBox/app/src/main/res/drawable/navheaderbackground.xml" value="0.172" />
-        <entry key="..\:/TestBox/app/src/main/res/drawable/pop_outer_layout.xml" value="0.1765" />
-        <entry key="..\:/TestBox/app/src/main/res/drawable/query_background.xml" value="0.1765" />
-        <entry key="..\:/TestBox/app/src/main/res/drawable/query_inner_background.xml" value="0.1765" />
         <entry key="..\:/TestBox/app/src/main/res/drawable/request_drawable_background.xml" value="0.211" />
         <entry key="..\:/TestBox/app/src/main/res/layout/activity_assignment.xml" value="0.1621376811594203" />
-        <entry key="..\:/TestBox/app/src/main/res/layout/activity_assignment_branches.xml" value="0.33" />
+        <entry key="..\:/TestBox/app/src/main/res/layout/activity_assignment_branches.xml" value="0.1621376811594203" />
         <entry key="..\:/TestBox/app/src/main/res/layout/activity_club_sign_up.xml" value="0.25" />
         <entry key="..\:/TestBox/app/src/main/res/layout/activity_main.xml" value="0.33" />
-        <entry key="..\:/TestBox/app/src/main/res/layout/activity_main_assignment.xml" value="0.33" />
         <entry key="..\:/TestBox/app/src/main/res/layout/activity_nav.xml" value="0.1" />
-        <entry key="..\:/TestBox/app/src/main/res/layout/activity_notice_full_screen.xml" value="0.1621376811594203" />
-        <entry key="..\:/TestBox/app/src/main/res/layout/activity_query_replies.xml" value="0.25" />
         <entry key="..\:/TestBox/app/src/main/res/layout/activity_sign_up.xml" value="0.22" />
         <entry key="..\:/TestBox/app/src/main/res/layout/activity_user_profile.xml" value="0.18" />
         <entry key="..\:/TestBox/app/src/main/res/layout/applicant_item_layout.xml" value="0.25" />
-        <entry key="..\:/TestBox/app/src/main/res/layout/branchestemp.xml" value="0.1621376811594203" />
         <entry key="..\:/TestBox/app/src/main/res/layout/fragment_applicant_profile.xml" value="0.1621376811594203" />
         <entry key="..\:/TestBox/app/src/main/res/layout/fragment_assignment.xml" value="0.2" />
         <entry key="..\:/TestBox/app/src/main/res/layout/fragment_home.xml" value="0.33" />
-        <entry key="..\:/TestBox/app/src/main/res/layout/fragment_main_forum_.xml" value="0.22" />
         <entry key="..\:/TestBox/app/src/main/res/layout/fragment_notice_board__club_.xml" value="0.2" />
         <entry key="..\:/TestBox/app/src/main/res/layout/fragment_notice_board__user_.xml" value="0.1621376811594203" />
         <entry key="..\:/TestBox/app/src/main/res/layout/fragment_request_profile.xml" value="0.33" />
@@ -44,17 +35,15 @@
         <entry key="..\:/TestBox/app/src/main/res/layout/fragment_teamup.xml" value="0.22" />
         <entry key="..\:/TestBox/app/src/main/res/layout/nav_header.xml" value="0.25" />
         <entry key="..\:/TestBox/app/src/main/res/layout/notice_item_layout.xml" value="0.2" />
-        <entry key="..\:/TestBox/app/src/main/res/layout/pop_add_assignment_layout.xml" value="0.25" />
         <entry key="..\:/TestBox/app/src/main/res/layout/popup_new_notice_layout.xml" value="0.25" />
         <entry key="..\:/TestBox/app/src/main/res/layout/popup_new_request_layout.xml" value="0.22" />
-        <entry key="..\:/TestBox/app/src/main/res/layout/query_request_layout.xml" value="0.21" />
-        <entry key="..\:/TestBox/app/src/main/res/layout/reply_query_layout.xml" value="0.33" />
         <entry key="..\:/TestBox/app/src/main/res/layout/request_item_layout.xml" value="0.18" />
         <entry key="..\:/TestBox/app/src/main/res/layout/teamup_request_layout.xml" value="0.33" />
         <entry key="..\:/TestBox/app/src/main/res/menu/nav_menu.xml" value="0.5" />
         <entry key="..\:/Users/Prajwal/AndroidStudioProjects/TestBox/app/src/main/res/layout/activity_club_sign_up.xml" value="0.1640625" />
         <entry key="..\:/Users/Prajwal/AndroidStudioProjects/TestBox/app/src/main/res/layout/activity_main.xml" value="0.1640625" />
         <entry key="..\:/Users/Prajwal/AndroidStudioProjects/TestBox/app/src/main/res/layout/activity_nav.xml" value="0.1640625" />
+        <entry key="..\:/Users/Prajwal/AndroidStudioProjects/TestBox/app/src/main/res/layout/activity_pdf.xml" value="0.4466666666666667" />
         <entry key="..\:/Users/Prajwal/AndroidStudioProjects/TestBox/app/src/main/res/layout/activity_sign_up.xml" value="0.1640625" />
         <entry key="..\:/Users/Prajwal/AndroidStudioProjects/TestBox/app/src/main/res/layout/activity_user_profile.xml" value="0.2608695652173913" />
         <entry key="..\:/Users/Prajwal/AndroidStudioProjects/TestBox/app/src/main/res/layout/applicant_item_layout.xml" value="0.15555555555555556" />
@@ -63,6 +52,7 @@
         <entry key="..\:/Users/Prajwal/AndroidStudioProjects/TestBox/app/src/main/res/layout/fragment_request_profile.xml" value="0.15555555555555556" />
         <entry key="..\:/Users/Prajwal/AndroidStudioProjects/TestBox/app/src/main/res/layout/fragment_team_collab.xml" value="0.15555555555555556" />
         <entry key="..\:/Users/Prajwal/AndroidStudioProjects/TestBox/app/src/main/res/layout/nav_header.xml" value="0.1" />
+        <entry key="..\:/Users/Prajwal/AndroidStudioProjects/TestBox/app/src/main/res/layout/notice_item_layout.xml" value="0.1796875" />
         <entry key="..\:/Users/Prajwal/AndroidStudioProjects/TestBox/app/src/main/res/layout/popup_new_request_layout.xml" value="0.15555555555555556" />
         <entry key="..\:/Users/Prajwal/AndroidStudioProjects/TestBox/app/src/main/res/layout/request_item_layout.xml" value="0.15555555555555556" />
       </map>
