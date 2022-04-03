@@ -48,7 +48,6 @@ class Nav_Activity : AppCompatActivity(), RequestCommunicator {
         drawerLayout = findViewById(R.id.drawerLayout)
         val navView : NavigationView = findViewById(R.id.nav_view)
 
-
         toggle = ActionBarDrawerToggle(this,drawerLayout, R.string.open, R.string.close)
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
@@ -62,7 +61,7 @@ class Nav_Activity : AppCompatActivity(), RequestCommunicator {
 
             when(it.itemId){
 
-                R.id.navHome -> Toast.makeText(this,"Home",Toast.LENGTH_SHORT).show()
+                R.id.navHome -> replaceFragment(mainForum_Fragment(),"Forum")
                 R.id.navClubs -> Toast.makeText(this,"Clubs",Toast.LENGTH_SHORT).show()
                 R.id.navNoticeBoard -> changeNoticeBoard()
                 R.id.navAssignment -> startassignment()
@@ -84,6 +83,8 @@ class Nav_Activity : AppCompatActivity(), RequestCommunicator {
 
     private fun logoutUser(){
         fireAuth.signOut()
+        startActivity(Intent(this, MainActivity::class.java))
+        finish()
         checkUser()
     }
 

@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#03192F"
     tools:context=".NoticeBoard_Club_Fragment">
 
     <LinearLayout
@@ -13,7 +14,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/actionBarColor"
+            android:background="#1C1C1C"
             android:elevation="3dp"
             android:paddingVertical="5dp">
 
@@ -25,8 +26,8 @@
                 android:gravity="center"
                 android:maxLines="1"
                 android:text="NOTICE"
-                android:textColor="@color/buttonTextColor"
-                android:textSize="20dp" />
+                android:textColor="#6495ED"
+                android:textSize="24sp" />
 
             <ImageView
                 android:id="@+id/addNewNotice"
