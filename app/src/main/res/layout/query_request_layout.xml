@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/query_background"
+    android:layout_margin="10dp"
+    android:paddingVertical="10dp"
+    android:paddingHorizontal="5dp">
+
+
+    <TextView
+        android:id="@+id/queryUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginHorizontal="7dp"
+        android:padding="3dp"
+        android:textColor="@color/black"
+        android:textSize="22sp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/query_inner_background"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginVertical="3dp"
+        android:padding="4dp">
+
+        <TextView
+            android:id="@+id/queryBody"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:layout_marginHorizontal="7dp"
+            android:paddingHorizontal="7dp"
+            android:layout_marginVertical="4dp"
+            android:paddingVertical="5dp"
+            android:maxLength="500"
+            android:inputType="textMultiLine"
+            tools:ignore="TextViewEdits" />
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/replyBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_gravity="center"
+        android:background="@drawable/button_all_rounded"
+        android:layout_marginVertical="4dp"
+        android:padding="2dp"
+        android:text="Reply"
+        android:textColor="@color/white"
+        android:textSize="16sp"/>
+
+</LinearLayout>

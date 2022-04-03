@@ -127,8 +127,7 @@
             android:layout_height="wrap_content"
             android:text="Cancel"
             android:layout_marginHorizontal="5dp"
-            android:background="@color/buttonTextColor"
-            />
+            android:background="@color/buttonTextColor"/>
 
         <Button
             android:id="@+id/saveBtn"

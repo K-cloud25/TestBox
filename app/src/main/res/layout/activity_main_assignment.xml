@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backGround"
+    tools:context=".Main_Assignment">
+
+    <RelativeLayout
+        android:id="@+id/RLTop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="@color/statusBarColor"
+        android:paddingHorizontal="2dp"
+        android:paddingVertical="5dp">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:text="Assignemnts"
+            android:textAlignment="center"
+            android:textColor="@color/titleTextColor"
+            android:textSize="25sp" />
+
+        <ImageView
+            android:id="@+id/searchBtn"
+            android:layout_width="33dp"
+            android:layout_height="33dp"
+            android:layout_below="@id/textView"
+            android:layout_alignParentStart="true"
+            android:src="@drawable/ic_baseline_search_24"/>
+
+
+        <EditText
+            android:id="@+id/searchET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            android:layout_below="@+id/textView"
+            android:layout_centerHorizontal="true"
+            android:layout_marginHorizontal="40dp"
+            android:layout_toStartOf="@id/addBtn"
+            android:layout_toEndOf="@id/searchBtn"
+            android:importantForAutofill="no"
+            android:inputType="text"/>
+
+        <ImageView
+            android:id="@+id/addBtn"
+            android:layout_width="33dp"
+            android:layout_height="33dp"
+            android:layout_below="@id/textView"
+            android:layout_alignParentEnd="true"
+            android:layout_marginHorizontal="7dp"
+            android:src="@drawable/ic_baseline_add_24" />
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/assignRV"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/RLTop"
+        android:layout_marginHorizontal="1dp"
+        android:layout_marginVertical="3dp"
+        android:paddingHorizontal="4dp"
+        android:paddingVertical="2dp" />
+
+</RelativeLayout>

@@ -13,6 +13,13 @@
         android:id="@+id/frameLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/backgroundlogo"
+            android:alpha="0.4"/>
+
     </FrameLayout>
 
     <com.google.android.material.navigation.NavigationView

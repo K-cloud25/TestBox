@@ -18,7 +18,10 @@ class applicantAdapter(private var applicationList : ArrayList<applicantClass>)
     : RecyclerView.Adapter<applicantAdapter.MyViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.applicant_item_layout,parent,false)
+        val itemView = LayoutInflater.from(parent.context).inflate(
+            R.layout.applicant_item_layout,
+            parent,
+            false)
         return MyViewHolder(itemView)
     }
 

@@ -14,6 +14,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TestBox">
         <activity
+            android:name=".Main_Assignment"
+            android:exported="false" />
+        <activity
+            android:name=".QueryReplies"
+            android:exported="false" />
+        <activity
             android:name=".pdf"
             android:exported="false" />
         <activity
@@ -22,7 +28,6 @@
         <activity
             android:name=".assignment_branches"
             android:exported="false" />
-
         <activity
             android:name=".assignment"
             android:exported="false" />

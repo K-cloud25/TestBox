@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/pop_outer_layout"
+    android:layout_marginHorizontal="15dp"
+    android:layout_marginVertical="40dp"
+    android:paddingHorizontal="5dp"
+    android:paddingVertical="10dp">
+
+    <TextView
+        android:id="@+id/yearPathTV"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="15dp"
+        android:layout_marginHorizontal="5dp"
+        android:layout_marginVertical="20dp"
+        android:textSize="22sp"
+        android:gravity="center"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:id="@+id/branchPathTV"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="15dp"
+        android:layout_marginHorizontal="5dp"
+        android:layout_marginVertical="20dp"
+        android:textSize="22sp"
+        android:textColor="@color/black"/>
+
+    <EditText
+        android:id="@+id/assignNameET"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginVertical="20dp"
+        android:paddingHorizontal="4dp"
+        android:scrollbars="vertical"
+        android:textColor="@color/black"
+        android:hint="Enter Assignment Name"
+        android:textColorHint="@color/darkGrey"
+        android:inputType="text"/>
+
+    <EditText
+        android:id="@+id/noteRV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginVertical="20dp"
+        android:paddingHorizontal="4dp"
+        android:scrollbars="vertical"
+        android:textColor="@color/black"
+        android:hint="Note For Readers"
+        android:textColorHint="@color/darkGrey"
+        android:inputType="text"/>
+
+    <EditText
+        android:id="@+id/fileNameURIEV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginVertical="20dp"
+        android:paddingHorizontal="4dp"
+        android:scrollbars="vertical"
+        android:textColor="@color/black"
+        android:hint="FileNameURI"
+        android:textColorHint="@color/darkGrey"
+        android:inputType="textUri"/>
+
+
+    <Button
+        android:id="@+id/uploadPdfBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="6dp"
+        android:paddingHorizontal="14dp"
+        android:text="Upload PDF"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="5dp"
+        android:background="#FFCB9E"
+        android:textColor="#C76024"/>
+
+    <Button
+        android:id="@+id/postPdfBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="6dp"
+        android:paddingHorizontal="14dp"
+        android:text="Post PDF"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="5dp"
+        android:background="#FFCB9E"
+        android:textColor="#C76024"/>
+
+</LinearLayout>
