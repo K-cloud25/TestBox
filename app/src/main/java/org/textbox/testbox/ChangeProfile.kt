@@ -2,6 +2,7 @@ package org.textbox.testbox
 
 import android.app.ProgressDialog
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -14,7 +15,6 @@ import com.google.firebase.storage.FirebaseStorage
 import org.textbox.testbox.databinding.ActivityChangeProfileBinding
 import java.net.URI
 
-var ImageURI : URI? = null
 class ChangeProfile : AppCompatActivity() {
 
     private lateinit var binding : ActivityChangeProfileBinding
@@ -40,6 +40,8 @@ class ChangeProfile : AppCompatActivity() {
         binding.selectimage.setOnClickListener {
             SelectImage()
         }
+
+        ImageUri= Uri.parse("android.resource://$packageName/${R.drawable.profilepic}")
     }
     private fun UploadImage() {
 
@@ -49,11 +51,15 @@ class ChangeProfile : AppCompatActivity() {
         progress.show()
         val filename=fireAuth.currentUser?.uid
         val Storageref = FirebaseStorage.getInstance().getReference("ProfilePic/$filename")
-        if( ImageUri!=null){
+        if(ImageUri != Uri.parse("android.resource://$packageName/${R.drawable.profilepic}")){
             Storageref.putFile(ImageUri).addOnSuccessListener {
                 binding.profilePic.setImageURI(null)
                 Toast.makeText(this,"Successfully Uploaded", Toast.LENGTH_SHORT).show()
-            }}
+                progress.dismiss()
+            }
+        }else{
+            progress.dismiss()
+        }
     }
 
     private fun SelectImage() {

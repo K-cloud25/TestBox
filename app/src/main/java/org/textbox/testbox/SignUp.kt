@@ -89,12 +89,21 @@ class SignUp : AppCompatActivity() {
             .addOnSuccessListener {
                 progressDialogue.dismiss()
 
-                val fireBaseUser = fireAuth.currentUser
-                val email = fireBaseUser!!.email
-                Toast.makeText(this,"Account created with $email",Toast.LENGTH_SHORT).show()
+                sendVerificationEmail()
 
-                startActivity(Intent(this, UserProfile::class.java))
-                finish()
+                if(fireAuth.currentUser?.isEmailVerified == true){
+                    val fireBaseUser = fireAuth.currentUser
+                    val email = fireBaseUser!!.email
+                    Toast.makeText(this,"Account created with $email",Toast.LENGTH_SHORT).show()
+
+                    startActivity(Intent(this, UserProfile::class.java))
+                    finish()
+                }
+                else{
+                    Toast.makeText(this,"Account Not Verified",Toast.LENGTH_SHORT).show()
+                    startActivity(Intent(this, UserProfile::class.java))
+                    finish()
+                }
             }
             .addOnFailureListener { e->
                 progressDialogue.dismiss()
@@ -106,5 +115,12 @@ class SignUp : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed() // Going Back to Previous Activity
         return super.onSupportNavigateUp()
+    }
+
+    private fun sendVerificationEmail(){
+        val fUser = fireAuth.currentUser
+        Toast.makeText(this,"Email is sent on Given Email",Toast.LENGTH_SHORT).show()
+
+        fUser?.sendEmailVerification()
     }
 }

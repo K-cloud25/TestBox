@@ -26,9 +26,6 @@ class Main_Assignment : AppCompatActivity() {
     lateinit var uri: URI
 
 
-
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainAssignmentBinding.inflate(layoutInflater)
@@ -40,22 +37,12 @@ class Main_Assignment : AppCompatActivity() {
         val branchPath = intent.getStringExtra("branchPath").toString()
         val branchName = intent.getStringExtra("branch").toString()
 
-
-
-
         val database= FirebaseDatabase.getInstance ().getReference(  "Uploads pdf")
         val storage = FirebaseStorage.getInstance().getReference("uploads pdf")
 
-
-
         binding.addBtn.setOnClickListener {
             AddPDF(binding.root.context,yearPath,branchPath,branchName)
-
-
         }
-
-
-
     }
 
 

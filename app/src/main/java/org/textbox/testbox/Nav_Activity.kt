@@ -45,6 +45,12 @@ class Nav_Activity : AppCompatActivity(), RequestCommunicator {
         binding = ActivityNavBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        fireAuth = FirebaseAuth.getInstance()
+        if(fireAuth.currentUser?.isEmailVerified != true){
+            startActivity(Intent(this,MainActivity::class.java))
+            finish()
+        }
+
         drawerLayout = findViewById(R.id.drawerLayout)
         val navView : NavigationView = findViewById(R.id.nav_view)
 
@@ -71,7 +77,6 @@ class Nav_Activity : AppCompatActivity(), RequestCommunicator {
             }
             true
         }
-        fireAuth = FirebaseAuth.getInstance()
         getData()
         disppic()
     }
