@@ -10,6 +10,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.ActionBar
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.FirebaseDatabase
 import org.textbox.testbox.databinding.ActivityMainBinding
 
@@ -59,12 +60,8 @@ class MainActivity : AppCompatActivity() {
         //LoginBtn
         binding.loginBtn.setOnClickListener {
             validateData()
-
-
         }
-
     }
-
 
     private fun validateData() {
         email = binding.logEmail.text.toString().trim()
@@ -88,11 +85,18 @@ class MainActivity : AppCompatActivity() {
             .addOnSuccessListener {
                 progressDialog.dismiss()
 
-                val firebaseUser = fireAuth.currentUser
-                val email = firebaseUser!!.email
-                Toast.makeText(this, "The Login successful as $email", Toast.LENGTH_SHORT).show()
-                startActivity(Intent(this, Nav_Activity::class.java))
-                finish()
+                if(fireAuth.currentUser?.isEmailVerified() == true){
+                    val firebaseUser = fireAuth.currentUser
+                    val email = firebaseUser!!.email
+                    Toast.makeText(this, "The Login successful as $email", Toast.LENGTH_SHORT).show()
+
+                    startActivity(Intent(this, Nav_Activity::class.java))
+                    finish()
+                }else{
+                    Toast.makeText(this,"Sending Verification Email on $email",Toast.LENGTH_SHORT).show()
+
+                    sendVerification()
+                }
             }
             .addOnFailureListener { e ->
                 progressDialog.dismiss()
@@ -108,5 +112,11 @@ class MainActivity : AppCompatActivity() {
 
             finish()
         }
+    }
+
+    private fun sendVerification(){
+        val fuser : FirebaseUser? = fireAuth.currentUser
+
+        fuser?.sendEmailVerification()
     }
 }
