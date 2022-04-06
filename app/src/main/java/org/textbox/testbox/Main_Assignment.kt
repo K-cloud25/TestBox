@@ -61,7 +61,7 @@ class Main_Assignment : AppCompatActivity() {
 
     private fun SelectPDF() {
 
-         val intent = Intent()
+        val intent = Intent()
         intent.setType ("application/pdf")
         intent.setAction (Intent.ACTION_GET_CONTENT)
         startActivityForResult(Intent.createChooser(intent,"Select PDF"),PDF)
