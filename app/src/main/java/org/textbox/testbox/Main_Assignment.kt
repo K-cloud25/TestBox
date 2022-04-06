@@ -21,17 +21,10 @@ import java.util.*
 class Main_Assignment : AppCompatActivity() {
 
     private lateinit var binding : ActivityMainAssignmentBinding
-    private lateinit var fireAuth: FirebaseAuth
-    private lateinit var firebaseDatabase: FirebaseDatabase
-    private lateinit var firebaseStorage: FirebaseStorage
     private lateinit var assRV : RecyclerView
 
     lateinit var uri: Uri
     val PDF :Int=0
-
-
-
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,18 +37,12 @@ class Main_Assignment : AppCompatActivity() {
         val branchPath = intent.getStringExtra("branchPath").toString()
         val branchName = intent.getStringExtra("branch").toString()
         val view = layoutInflater.inflate(R.layout.pop_add_assignment_layout,null)
-        assRV = view.findViewById(R.id.assignRV)
 
-
+        assRV = findViewById(R.id.assignRV)
 
         binding.addBtn.setOnClickListener {
             AddPDF(binding.root.context,yearPath,branchPath,branchName)
-
-
         }
-
-
-
     }
 
 
@@ -66,17 +53,18 @@ class Main_Assignment : AppCompatActivity() {
         intent.setAction (Intent.ACTION_GET_CONTENT)
         startActivityForResult(Intent.createChooser(intent,"Select PDF"),PDF)
     }
+
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
 
         if(resultCode== AppCompatActivity.RESULT_OK){
             if(requestCode==PDF) {
                 uri = data?.data!!
             }
-
-
         }
         super.onActivityResult(requestCode, resultCode, data)
     }
+
     private fun uploadDB(alertD: AlertDialog, root: Context, Title:String, notes:String){
 
         val firebaseAuth : String = FirebaseAuth.getInstance().currentUser?.uid.toString()
@@ -85,8 +73,6 @@ class Main_Assignment : AppCompatActivity() {
         val branchName = intent.getStringExtra("branch").toString()
 
         Uploadpdf(alertD,root,noticeID)
-
-
 
         val obj = Ass_Class(noticeID,Title,notes)
 
@@ -145,8 +131,6 @@ class Main_Assignment : AppCompatActivity() {
             postpdf.setOnClickListener {
                 val _assname : String = assname?.text.toString()
                 val _assnotes : String = assnotes?.text.toString()
-
-
                 uploadDB(root,root.context,_assname,_assnotes)
             }
         }

@@ -46,13 +46,12 @@ class assignment_branches : AppCompatActivity(){
         binding.branchesrv.adapter = _adapter
         _adapter.setItemClickListener(object : assignmentAdapter.onItemClickListener{
             override fun onItemClick(position: Int) {
-                val intent = Intent(binding.root.context,Main_Assignment::class.java)
-                intent.putExtra("yearPath",yearpath)
-                intent.putExtra("branchPath",titleShort[position])
-                intent.putExtra("branch",title[position])
+                val intent = Intent(binding.root.context, Main_Assignment::class.java)
+                intent.putExtra("yearPath", yearpath)
+                intent.putExtra("branchPath", titleShort[position])
+                intent.putExtra("branch", title[position])
                 startActivity(intent)
             }
-
         })
     }
 }
