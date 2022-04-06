@@ -166,17 +166,21 @@ class Nav_Activity : AppCompatActivity(), RequestCommunicator {
 
         val localfile=File.createTempFile("uid","jpg")
         val profile : de.hdodenhof.circleimageview.CircleImageView = navView.getHeaderView(0).findViewById(
-            R.id.profilePic
-        )
-
-
+            R.id.profilePic)
 
         Storageref.getFile(localfile).addOnSuccessListener {
             val bitmap=BitmapFactory.decodeFile(localfile.absolutePath)
            profile.setImageBitmap(bitmap)
         }
 
-
+        profile.setOnClickListener {
+            if(IsUser){
+                val intent = Intent(this,ChangeProfile::class.java)
+                startActivity(intent)
+            }else{
+                startActivity(Intent(this,ChangeClubProfile::class.java))
+            }
+        }
     }
 
     override fun changeFragment(fragment: Fragment,title :String){

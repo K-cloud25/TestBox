@@ -14,6 +14,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TestBox">
         <activity
+            android:name=".ChangeClubProfile"
+            android:exported="false" />
+        <activity
+            android:name=".ChangeProfile"
+            android:exported="false" />
+        <activity
             android:name=".Main_Assignment"
             android:exported="false" />
         <activity
