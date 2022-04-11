@@ -28,7 +28,7 @@ class assignmentAdapter(private var title: Array<String>)
     }
 
     override fun onBindViewHolder(holder: assignmentAdapter.ViewHolder, position: Int) {
-        holder.itemTitle.text=title[position]
+        holder.itemTitle.text= title[position].toString()
     }
 
     override fun getItemCount(): Int {

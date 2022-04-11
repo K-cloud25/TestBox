@@ -22,9 +22,15 @@ class Main_Assignment : AppCompatActivity() {
 
     private lateinit var binding : ActivityMainAssignmentBinding
     private lateinit var assRV : RecyclerView
+    private lateinit var dbref : DatabaseReference
+
+    private lateinit var pdfArraylist : ArrayList<pdfclass>
 
     lateinit var uri: Uri
     val PDF :Int=0
+
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,12 +43,50 @@ class Main_Assignment : AppCompatActivity() {
         val branchPath = intent.getStringExtra("branchPath").toString()
         val branchName = intent.getStringExtra("branch").toString()
         val view = layoutInflater.inflate(R.layout.pop_add_assignment_layout,null)
+        pdfArraylist = arrayListOf<pdfclass>()
 
-        assRV = findViewById(R.id.assignRV)
+        val Dbref : DatabaseReference = FirebaseDatabase.getInstance().getReference("Assignment/$yearPath/$branchName")
+
+
+
+        gettitle()
+
+        val _adapter = pdfAdapter(pdfArraylist)
+        binding.assignRV.adapter = _adapter
+
 
         binding.addBtn.setOnClickListener {
             AddPDF(binding.root.context,yearPath,branchPath,branchName)
         }
+    }
+
+    private fun gettitle() {
+        val yearPath = intent.getStringExtra("yearPath").toString()
+        val branchName = intent.getStringExtra("branch").toString()
+
+        val Dbref : DatabaseReference = FirebaseDatabase.getInstance().getReference("Assignment/$yearPath/$branchName")
+
+        Dbref.addValueEventListener(object :ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if(snapshot.exists()){
+                    for(userSnapshot in snapshot.children){
+                        val user = userSnapshot.getValue(pdfclass::class.java)
+                        pdfArraylist.add(user!!)
+
+                    }
+                    assRV.adapter=pdfAdapter(pdfArraylist)
+
+                }
+
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+
+        })
+
+
     }
 
 
@@ -68,17 +112,17 @@ class Main_Assignment : AppCompatActivity() {
     private fun uploadDB(alertD: AlertDialog, root: Context, Title:String, notes:String){
 
         val firebaseAuth : String = FirebaseAuth.getInstance().currentUser?.uid.toString()
-        val noticeID = Title+firebaseAuth
+        val pdfID = Title+firebaseAuth
         val yearPath = intent.getStringExtra("yearPath").toString()
         val branchName = intent.getStringExtra("branch").toString()
 
-        Uploadpdf(alertD,root,noticeID)
+        Uploadpdf(alertD,root,pdfID)
 
-        val obj = Ass_Class(noticeID,Title,notes)
+        val obj = Ass_Class(pdfID,Title,notes)
 
         val Dbref : DatabaseReference = FirebaseDatabase.getInstance().getReference("Assignment/$yearPath/$branchName")
 
-        Dbref.child(noticeID).setValue(obj)
+        Dbref.child(pdfID).setValue(obj)
 
     }
 
@@ -138,3 +182,4 @@ class Main_Assignment : AppCompatActivity() {
 
 
 }
+
