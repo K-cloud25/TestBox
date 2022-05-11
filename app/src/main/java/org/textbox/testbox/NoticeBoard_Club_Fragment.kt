@@ -1,12 +1,12 @@
 package org.textbox.testbox
 
 import android.annotation.SuppressLint
-import android.app.AlertDialog
-import android.app.ProgressDialog
+import android.app.*
 import android.content.Context
 import android.content.Intent
 import android.media.Image
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -17,6 +17,8 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
@@ -40,6 +42,9 @@ class NoticeBoard_Club_Fragment : Fragment() {
 
     private lateinit var noticeRV : RecyclerView
     private lateinit var noticeList : ArrayList<Notice_Class>
+
+    private val CHANNEL_ID = "notification_notice"
+    private val notification_ID = 101
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -83,6 +88,8 @@ class NoticeBoard_Club_Fragment : Fragment() {
 
         uploadphotoBtn.setOnClickListener { SelectImage() }
 
+        createNotificationChannel(context)
+
         uploadBtn.setOnClickListener {
             val _title : String = title.text.toString()
             val _links : String = links.text.toString()
@@ -90,6 +97,7 @@ class NoticeBoard_Club_Fragment : Fragment() {
             val _ext : String = extraInfo.text.toString()
 
             uploadtoDB(root,root.context,_title,_links,_desc,_ext)
+            sendNotification(context)
         }
     }
 
@@ -164,6 +172,30 @@ class NoticeBoard_Club_Fragment : Fragment() {
             }
             override fun onCancelled(error: DatabaseError) {}
         })
+    }
+
+    private fun createNotificationChannel(context : Context){
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+            val name = "Notice Borad is Updated"
+            val descriptionText = "Notification Description"
+            val importance = NotificationManager.IMPORTANCE_DEFAULT
+            val channel = NotificationChannel(CHANNEL_ID,name,importance).apply {
+                description = descriptionText
+            }
+            val notificationManager : NotificationManager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.createNotificationChannel(channel)
+        }
+    }
+
+    private fun sendNotification(context: Context){
+        val builder = NotificationCompat.Builder(context,CHANNEL_ID)
+            .setContentTitle("Example Title")
+            .setContentText("Example Description")
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+
+        with(NotificationManagerCompat.from(context)){
+            notify(notification_ID,builder.build())
+        }
     }
 
     companion object {

@@ -51,7 +51,7 @@ class ChangeProfile : AppCompatActivity() {
         progress.show()
         val filename=fireAuth.currentUser?.uid
         val Storageref = FirebaseStorage.getInstance().getReference("ProfilePic/$filename")
-        if(ImageUri != Uri.parse("android.resource://$packageName/${R.drawable.profilepic}")){
+            if(ImageUri != Uri.parse("android.resource://$packageName/${R.drawable.profilepic}")){
             Storageref.putFile(ImageUri).addOnSuccessListener {
                 binding.profilePic.setImageURI(null)
                 Toast.makeText(this,"Successfully Uploaded", Toast.LENGTH_SHORT).show()

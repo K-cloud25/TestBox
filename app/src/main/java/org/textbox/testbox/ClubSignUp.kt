@@ -54,7 +54,7 @@ class ClubSignUp : AppCompatActivity() {
         }
     }
 
-    private fun validateAllData(){
+    private fun validateAllData() {
         val temail = binding.ClubEmail.text.toString()
         val name = binding.ClubName.text.toString()
         val tpasswrd = binding.ClubPassword.text.toString()

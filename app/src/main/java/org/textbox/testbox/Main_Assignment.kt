@@ -89,7 +89,6 @@ class Main_Assignment : AppCompatActivity() {
 
     }
 
-
     private fun SelectPDF() {
 
         val intent = Intent()
@@ -141,7 +140,8 @@ class Main_Assignment : AppCompatActivity() {
 
                 progress.dismiss()
                 alertD.dismiss()
-            }}
+            }
+        }
     }
 
 
@@ -179,7 +179,5 @@ class Main_Assignment : AppCompatActivity() {
             }
         }
     }
-
-
 }
 

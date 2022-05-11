@@ -55,7 +55,7 @@ class Reply_Adapter(private var replyList : ArrayList<Reply_Class>)
     class MyViewHolder(itemView : View):RecyclerView.ViewHolder(itemView){
         val replyUserName : TextView = itemView.findViewById(R.id.userNameReply)
         val replyBody : TextView = itemView.findViewById(R.id.replyBody)
-        val removeBtn : ImageView = itemView.findViewById(R.id.removeReply)
+                val removeBtn : ImageView = itemView.findViewById(R.id.removeReply)
     }
 
     private fun deleteRpl(id : String,rpID : String,senderID :String){

@@ -101,8 +101,7 @@ class SignUp : AppCompatActivity() {
                 }
                 else{
                     Toast.makeText(this,"Account Not Verified",Toast.LENGTH_SHORT).show()
-                    startActivity(Intent(this, UserProfile::class.java))
-                    finish()
+
                 }
             }
             .addOnFailureListener { e->
